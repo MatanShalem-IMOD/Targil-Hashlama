@@ -65,5 +65,5 @@ variable "address_prefixes_blueteam_cluster_subnet" {
 
 variable "address_prefixes_services_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.0.65.0/24"]
+  default     = ["10.1.65.0/24"]
 }
