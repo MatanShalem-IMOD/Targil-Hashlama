@@ -41,3 +41,29 @@ variable "address_prefixes_firewall_hub_subnet" {
   description = "the address prefixes of the subnet"
   default     = ["10.0.0.128/25"]
 }
+
+### Cluster VNET
+variable "address_space_cluster_vnet" {
+  description = "the address space of the vnet"
+  default     = ["10.1.0.0/16"]
+}
+
+variable "dns_servers_cluster_vnet" {
+  description = "the dns_servers of the vnet"
+  default     = ["10.1.0.1"]
+}
+
+variable "address_prefixes_openshift_cluster_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.1.0.0/18"]
+}
+
+variable "address_prefixes_blueteam_cluster_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.1.64.0/24"]
+}
+
+variable "address_prefixes_services_cluster_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.0.65.0/24"]
+}
