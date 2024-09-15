@@ -23,6 +23,10 @@ resource "azurerm_virtual_network" "create_cluster_vnet" {
     name             = "services_cluster_subnet"
     address_prefixes = vars.address_prefixes_services_cluster_subnet
   }
+  subnet {
+    name             = "elk_cluster_subnet"
+    address_prefixes = vars.address_prefixes_elk_cluster_subnet
+  }
 
 
   tags = {
