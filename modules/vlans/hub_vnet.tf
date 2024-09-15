@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
   location            = azurerm_resource_group.create_hub_resource_group.location
   resource_group_name = azurerm_resource_group.create_hub_resource_group.name
   address_space       = vars.address_space_hub_vnet
-  dns_servers         = vars.dns_servers_hub_vnet
+  #dns_servers         = vars.dns_servers_hub_vnet
 
   subnet {
     name             = "main_hub_subnet"
