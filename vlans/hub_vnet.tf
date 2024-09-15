@@ -12,8 +12,8 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
   dns_servers         = vars.dns_servers_hub_vnet
 
   subnet {
-    name             = "cyber_vms_hub_subnet"
-    address_prefixes = vars.address_prefixes_hub_subnet
+    name             = "main_hub_subnet"
+    address_prefixes = vars.address_prefixes_main_hub_subnet
   }
 
 
