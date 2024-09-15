@@ -3,6 +3,7 @@ variable "location" {
   default     = "West Europe"
 }
 
+##########CHANGE IPS AND CHECK ABOUT DNS#############
 
 ### Encryption VNET
 variable "address_space_encryption_vnet" {
@@ -12,7 +13,7 @@ variable "address_space_encryption_vnet" {
 
 variable "dns_servers_encryption_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.0.0.1"]
+  default     = ["10.0.0.4"]
 }
 
 
@@ -29,18 +30,14 @@ variable "address_space_hub_vnet" {
 
 variable "dns_servers_hub_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.0.1.1"]
+  default     = ["10.0.1.4"]
 }
 
 variable "address_prefixes_hub_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.0.1.1/25"]
+  default     = ["10.0.1.0/24"]
 }
 
-variable "address_prefixes_firewall_hub_subnet" {
-  description = "the address prefixes of the subnet"
-  default     = ["10.0.0.128/25"]
-}
 
 ### Cluster VNET
 variable "address_space_cluster_vnet" {
@@ -50,7 +47,7 @@ variable "address_space_cluster_vnet" {
 
 variable "dns_servers_cluster_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.1.0.1"]
+  default     = ["10.1.0.4"]
 }
 
 variable "address_prefixes_openshift_cluster_subnet" {
@@ -65,5 +62,26 @@ variable "address_prefixes_blueteam_cluster_subnet" {
 
 variable "address_prefixes_services_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.1.65.0/24"]
+  default     = ["10.1.65.0/25"]
+}
+
+variable "address_prefixes_elk_cluster_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.1.65.0/25"]
+}
+
+### Firewall VNET
+variable "address_space_firewall_vnet" {
+  description = "the address space of the vnet"
+  default     = ["10.0.2.0/24"]
+}
+
+variable "dns_servers_firewall_vnet" {
+  description = "the dns_servers of the vnet"
+  default     = ["10.0.2.4"]
+}
+
+variable "address_prefixes_firewall_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.0.2.0/24"]
 }

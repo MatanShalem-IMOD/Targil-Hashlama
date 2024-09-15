@@ -16,10 +16,6 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
     address_prefixes = vars.address_prefixes_hub_subnet
   }
 
-  subnet {
-    name             = "firewall_hub_subnet"
-    address_prefixes = vars.address_prefixes_firewall_hub_subnet
-  }
 
   tags = {
     team = "cyber_purple"
