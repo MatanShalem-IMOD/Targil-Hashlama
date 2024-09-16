@@ -11,13 +11,20 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
   address_space       = var.address_space_hub_vnet
   #dns_servers         = var.dns_servers_hub_vnet
 
-  subnet {
-    name             = "main-hub-subnet"
-    address_prefix = var.address_prefixes_main_hub_subnet
-  }
+  # subnet {
+  #   name             = "main-hub-subnet"
+  #   address_prefix = var.address_prefixes_main_hub_subnet
+  # }
 
 
   tags = {
     team = "cyber_purple"
   }
+}
+
+resource "azurerm_subnet" "create_hub_vnet" {
+  name                 = "main-hub-subnet"
+  resource_group_name  = azurerm_resource_group.create_hub_resource_group.name
+  virtual_network_name = azurerm_virtual_network.create_hub_vnet.name
+  address_prefixes     = var.address_prefixes_main_hub_subnet # azurerm_subnet expects "address_prefixes" instead of "address_prefix"
 }
