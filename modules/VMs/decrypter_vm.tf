@@ -1,19 +1,19 @@
 resource "azurerm_network_interface" "decryption_vm_nic" {
     name                = var.decryption_vm_nic_name
-    location            = module.hub_vnet.location
-    resource_group_name = module.hub_vnet.resource_group_name
+    location            = var.hub_vnet_location
+    resource_group_name = var.hub_vnet_resource_group_name
 
     ip_configuration {
         name                          = "internal"
-        subnet_id                     = module.hub_vnet.subnet_id
+        subnet_id                     = var.hub_vnet_subnet_id
         private_ip_address_allocation = "Dynamic"
     }
 }
 
 resource "azurerm_virtual_machine" "decryption_vm" {
     name                  = var.decryption_vm_name
-    location              = module.hub_vnet.location
-    resource_group_name   = module.hub_vnet.resource_group_name
+    location              = var.hub_vnet_location
+    resource_group_name   = var.hub_vnet_resource_group_name
     network_interface_ids = [azurerm_network_interface.example.id]
     vm_size               = var.decryption_vm_size
 
