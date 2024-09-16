@@ -1,7 +1,3 @@
-provider "azurerm" {
-    features {}
-}
-
 module "hub_vnet" {
     source = "../vlans/"
 }

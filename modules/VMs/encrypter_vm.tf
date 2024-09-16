@@ -1,7 +1,3 @@
-provider "azurerm" {
-    features {}
-}
-
 module "encryption_vnet" {
     source = "../vlans/"
 }

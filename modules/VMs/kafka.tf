@@ -1,7 +1,3 @@
-provider "azurerm" {
-    features {}
-}
-
 module "cluster_vnet" {
     source = "../vlans/"
 }
