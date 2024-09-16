@@ -16,6 +16,24 @@ variable "hub_vnet_subnet_id" {
 }
 ############################################################################################################
 
+# Get Cluster VNET details
+############################################################################################################
+variable "cluster_vnet_location" {
+    description = "the ID of hub VNET"
+    type = string
+}
+
+variable "cluster_vnet_resource_group_name" {
+    description = "the ID of hub VNET"
+    type = string
+}
+
+variable "cluster_vnet_subnet_id" {
+    description = "the ID of hub VNET"
+    type = string
+}
+############################################################################################################
+
 # Encryption VM section
 ############################################################################################################
 variable "encryption_vm_nic_name" {
