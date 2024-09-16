@@ -22,8 +22,8 @@ module "vms" {
 
   # Hub Details
   hub_vnet_location = module.vlans.hub_vnet_location
-  hub_vnet_resource_group_name = module.vlans.hub_vnet_resource_group_name
-  hub_vnet_subnet_id = module.vlans.hub_vnet_subnet_id
+  hub_vnet_resource_group_name = module.vlans.hub_resource_group_name
+  hub_vnet_subnet_id = module.vlans.hub_subnet_id
 
   # Cluster Details
   # cluster_vnet_location = module.vlans.cluster_vnet_location

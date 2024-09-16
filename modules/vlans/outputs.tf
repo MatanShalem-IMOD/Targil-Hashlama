@@ -43,6 +43,11 @@ output "hub_vnet_id" {
   description = "the ID of hub VNET"
 }
 
+output "hub_vnet_location" {
+  value = azurerm_virtual_network.create_hub_vnet.location
+  description = "the ID of hub VNET"
+}
+
 output "hub_subnet_name" {
   value = azurerm_subnet.create_hub_subnet.name
 }
