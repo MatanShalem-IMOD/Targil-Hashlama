@@ -17,12 +17,12 @@ output "encryption_subnet_name" {
   value = azurerm_subnet.create_encryption_subnet.name
 }
 
-output "encryption_vnet_ip" {
-  value = azurerm_virtual_network.create_encryption_vnet.subnet[0].address_prefix[0]
+output "encryption_subnet_ip_range" {
+  value = resource.azurerm_subnet.create_encryption_subnet.address_prefixes[0]
 }
 
 output "encryption_subnet_id" {
-  value = azurerm_subnet.create_encryption_vnet.subnet[0].id
+  value = azurerm_subnet.create_encryption_subnet.address_prefixes[0]
   
 }
 
@@ -44,17 +44,16 @@ output "hub_vnet_id" {
 }
 
 output "hub_subnet_name" {
-  value = azurerm_subnet.create_hub_vnet.subnet[0].name 
+  value = azurerm_subnet.create_hub_subnet.name
 }
 
-output "hub_vnet_ip" {
-  value = azurerm_virtual_network.create_hub_vnet.subnet[0].address_prefixes[0]
+output "hub_subnet_ip_range" {
+  value = resource.azurerm_subnet.create_hub_subnet.address_prefixes[0]
 }
 
 output "hub_subnet_id" {
-  value = azurerm_subnet.create_hub_vnet.subnet[0].id
+  value = azurerm_subnet.create_hub_subnet.address_prefixes[0]
 }
-
 
 ############################################################################################################
 
@@ -75,15 +74,15 @@ output "firewall_vnet_id" {
 }
 
 output "firewall_subnet_name" {
-  value = azurerm_subnet.create_firewall_vnet.subnet[0].name 
+  value = azurerm_subnet.create_firewall_subnet.name
 }
 
-output "firewall_vnet_ip" {
-  value = azurerm_virtual_network.create_firewall_vnet.subnet[0].address_prefixes[0]
+output "firewall_subnet_ip_range" {
+  value = resource.azurerm_subnet.create_firewall_subnet.address_prefixes[0]
 }
 
 output "firewall_subnet_id" {
-  value = azurerm_subnet.create_firewall_vnet.subnet[0].id
+  value = azurerm_subnet.create_firewall_subnet.address_prefixes[0]
 }
 
 ############################################################################################################
@@ -108,51 +107,53 @@ output "cluster_vnet_id" {
   description = "the ID of cluster VNET"
 }
 
-
-
 ############################################################################################################
 
 # Cluster Subnets 
 #########################################
+# OpenShift subnet
 output "cluster_subnet_openshift_name" {
-  value = azurerm_subnet.create_cluster_vnet.openshift_cluster_subnet.name 
+  value = azurerm_subnet.create_openshift_cluster_subnet.name 
 }
 output "cluster_subnet_openshift_ip" {
-  value = azurerm_virtual_network.create_cluster_vnet.openshift_cluster_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_openshift_cluster_subnet.address_prefixes[0]
 }
 output "cluster_subnet_openshift_id" {
-  value = azurerm_subnet.create_cluster_vnet.openshift_cluster_subnet.id
+  value = azurerm_subnet.create_openshift_cluster_subnet.id
 }
 
+# Blue Team subnet
 output "cluster_subnet_blueteam_name" {
-  value = azurerm_subnet.create_cluster_vnet.blueteam_cluster_subnet.name 
+  value = azurerm_subnet.create_blue_team_cluster_subnet.name 
 }
 output "cluster_subnet_blueteam_ip" {
-  value = azurerm_virtual_network.create_cluster_vnet.blueteam_cluster_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_blue_team_cluster_subnet.address_prefixes[0]
 }
 output "cluster_subnet_blueteam_id" {
-  value = azurerm_subnet.create_cluster_vnet.blueteam_cluster_subnet.id
+  value = azurerm_subnet.create_blue_team_cluster_subnet.id
 }
 
+# Services subnet
 output "cluster_subnet_services_name" {
-  value = azurerm_subnet.create_cluster_vnet.services_cluster_subnet.name 
+  value = azurerm_subnet.create_services_cluster_subnet.name 
 }
 output "cluster_subnet_services_ip" {
-  value = azurerm_virtual_network.create_cluster_vnet.services_cluster_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_services_cluster_subnet.address_prefixes[0]
 }
 
 output "cluster_subnet_services_id" {
-  value = azurerm_subnet.create_cluster_vnet.services_cluster_subnet.id
+  value = azurerm_subnet.create_services_cluster_subnet.id
 }
 
+# ELK subnet
 output "cluster_subnet_elk_name" {
-  value = azurerm_subnet.create_cluster_vnet.elk_cluster_subnet.name 
+  value = azurerm_subnet.create_elk_cluster_subnet.name 
 }
 output "cluster_subnet_elk_ip" {
-  value = azurerm_virtual_network.create_cluster_vnet.elk_cluster_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_elk_cluster_subnet.address_prefixes[0]
 }
 
 output "cluster_subnet_elk_id" {
-  value = azurerm_subnet.create_cluster_vnet.elk_cluster_subnet.id
+  value = azurerm_subnet.create_elk_cluster_subnet.id
 }
 #########################################

@@ -22,7 +22,7 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
   }
 }
 
-resource "azurerm_subnet" "create_hub_vnet" {
+resource "azurerm_subnet" "create_hub_subnet" {
   name                 = "main-hub-subnet"
   resource_group_name  = azurerm_resource_group.create_hub_resource_group.name
   virtual_network_name = azurerm_virtual_network.create_hub_vnet.name
