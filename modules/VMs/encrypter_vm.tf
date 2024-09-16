@@ -14,7 +14,7 @@ resource "azurerm_virtual_machine" "encryption_vm" {
     name                  = var.encryption_vm_name
     location              = var.hub_vnet_location
     resource_group_name   = var.hub_vnet_resource_group_name
-    network_interface_ids = [azurerm_network_interface.example.id]
+    network_interface_ids = [azurerm_network_interface.encryption_vm_nic.id]
     vm_size               = var.encryption_vm_size
 
     storage_os_disk {
