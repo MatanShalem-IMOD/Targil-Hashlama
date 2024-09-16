@@ -3,11 +3,11 @@ provider "azurerm" {
 }
 
 module "encryption_vnet" {
-    source = "../vlans/encryption_vnet"
+    source = "../vlans/"
 }
 
-resource "azurerm_network_interface" "example" {
-    name                = "example-nic"
+resource "azurerm_network_interface" "encryption_vm_nic" {
+    name                = var.encryption_vm_nic_name
     location            = module.encryption_vnet.location
     resource_group_name = module.encryption_vnet.resource_group_name
 
@@ -18,7 +18,7 @@ resource "azurerm_network_interface" "example" {
     }
 }
 
-resource "azurerm_virtual_machine" "example" {
+resource "azurerm_virtual_machine" "encryption_vm" {
     name                  = var.encryption_vm_name
     location              = module.encryption_vnet.location
     resource_group_name   = module.encryption_vnet.resource_group_name

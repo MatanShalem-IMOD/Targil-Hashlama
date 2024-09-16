@@ -1,9 +1,13 @@
 
 # Encrypter VM section
 ############################################################################################################
+variable "encryption_vm_nic_name" {
+  description = "The name of the encryption VM nic"
+  default     = "encryption-vm-nic"
+}
 variable "encryption_vm_name" {
   description = "The name of the encryption VM"
-  default     = "encryption_vm"
+  default     = "encryption-vm"
 }
 variable "encryption_vm_size" {
   description = "The size of the encryption VM"
@@ -11,7 +15,7 @@ variable "encryption_vm_size" {
 }
 variable "encryption_vm_disk_name" {
   description = "The name of the encryption VM"
-  default     = "encryption_vm_disk"
+  default     = "encryption-vm-disk"
 }
 variable "encryption_vm_admin_username" {
   description = "The admin username of the encryption VM"
