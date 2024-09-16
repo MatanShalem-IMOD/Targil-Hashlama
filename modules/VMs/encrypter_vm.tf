@@ -2,57 +2,47 @@ provider "azurerm" {
     features {}
 }
 
-# resource "azurerm_virtual_network" "example" {
-#     name                = "example-network"
-#     address_space       = ["10.0.0.0/16"]
-#     location            = azurerm_resource_group.example.location
-#     resource_group_name = azurerm_resource_group.example.name
-# }
-
-# resource "azurerm_subnet" "example" {
-#     name                 = "example-subnet"
-#     resource_group_name  = azurerm_resource_group.example.name
-#     virtual_network_name = azurerm_virtual_network.example.name
-#     address_prefixes     = ["10.0.2.0/24"]
-# }
+module "encryption_vnet" {
+    source = "../vlans/encryption_vnet"
+}
 
 resource "azurerm_network_interface" "example" {
     name                = "example-nic"
-    location            = module.vlans.encryption_vnet_name
-    resource_group_name = azurerm_resource_group.example.name
+    location            = module.encryption_vnet.location
+    resource_group_name = module.encryption_vnet.resource_group_name
 
     ip_configuration {
         name                          = "internal"
-        subnet_id                     = azurerm_subnet.example.id
+        subnet_id                     = module.encryption_vnet.subnet_id
         private_ip_address_allocation = "Dynamic"
     }
 }
 
 resource "azurerm_virtual_machine" "example" {
-    name                  = "example-machine"
-    location              = azurerm_resource_group.example.location
-    resource_group_name   = azurerm_resource_group.example.name
+    name                  = var.encryption_vm_name
+    location              = module.encryption_vnet.location
+    resource_group_name   = module.encryption_vnet.resource_group_name
     network_interface_ids = [azurerm_network_interface.example.id]
-    vm_size               = "Standard_DS1_v2"
+    vm_size               = var.encryption_vm_size
 
     storage_os_disk {
-        name              = "example-os-disk"
+        name              = var.encryption_vm_disk_name
         caching           = "ReadWrite"
         create_option     = "FromImage"
         managed_disk_type = "Standard_LRS"
     }
 
     storage_image_reference {
-        publisher = "Canonical"
-        offer     = "UbuntuServer"
-        sku       = "18.04-LTS"
-        version   = "latest"
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "22_04-lts"
+    version   = "latest"
     }
 
     os_profile {
         computer_name  = "hostname"
-        admin_username = ""
-        admin_password = ""
+        admin_username = var.encryption_vm_admin_username
+        admin_password = var.encryption_vm_admin_password
     }
 
     os_profile_linux_config {
