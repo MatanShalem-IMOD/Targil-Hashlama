@@ -2,26 +2,26 @@ provider "azurerm" {
     features {}
 }
 
-module "hub_vnet" {
+module "cluster_vnet" {
     source = "../vlans/"
 }
 
 resource "azurerm_network_interface" "kafka_vm_nic" {
     name                = var.kafka_vm_nic_name
-    location            = module.hub_vnet.location
-    resource_group_name = module.hub_vnet.resource_group_name
+    location            = module.cluster_vnet.location
+    resource_group_name = module.cluster_vnet.resource_group_name
 
     ip_configuration {
         name                          = "internal"
-        subnet_id                     = module.hub_vnet.subnet_id
+        subnet_id                     = module.cluster_vnet.subnet_id
         private_ip_address_allocation = "Dynamic"
     }
 }
 
 resource "azurerm_virtual_machine" "kafka_vm" {
     name                  = var.kafka_vm_name
-    location              = module.hub_vnet.location
-    resource_group_name   = module.hub_vnet.resource_group_name
+    location              = module.cluster_vnet.location
+    resource_group_name   = module.cluster_vnet.resource_group_name
     network_interface_ids = [azurerm_network_interface.example.id]
     vm_size               = var.kafka_vm_size
 
