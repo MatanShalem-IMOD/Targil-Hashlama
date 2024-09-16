@@ -90,6 +90,10 @@ output "firewall_subnet_id" {
 
 # Cluster
 ############################################################################################################
+output "cluster_vnet_location" {
+    value = var.location
+    description = "the location of cluster vnet"
+}
 output "cluster_resource_group_name" {
     value = azurerm_resource_group.create_cluster_resource_group.name
     description = "the Name of cluster resource group"
@@ -103,6 +107,7 @@ output "cluster_vnet_id" {
   value = azurerm_virtual_network.create_cluster_vnet.id
   description = "the ID of cluster VNET"
 }
+
 
 
 ############################################################################################################

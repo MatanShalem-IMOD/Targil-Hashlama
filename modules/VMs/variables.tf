@@ -1,17 +1,17 @@
 # Get Hub VNET details
 ############################################################################################################
 variable "hub_vnet_location" {
-    description = "the ID of hub VNET"
+    description = "the Location of the hub VNET"
     type = string
 }
 
 variable "hub_vnet_resource_group_name" {
-    description = "the ID of hub VNET"
+    description = "the Name of the hub resource group"
     type = string
 }
 
 variable "hub_vnet_subnet_id" {
-    description = "the ID of hub VNET"
+    description = "the ID of hub subnet"
     type = string
 }
 ############################################################################################################
@@ -19,17 +19,17 @@ variable "hub_vnet_subnet_id" {
 # Get Cluster VNET details
 ############################################################################################################
 variable "cluster_vnet_location" {
-    description = "the ID of hub VNET"
+    description = "the Location of the cluster VNET"
     type = string
 }
 
 variable "cluster_vnet_resource_group_name" {
-    description = "the ID of hub VNET"
+    description = "the Name of the cluster resource group"
     type = string
 }
 
-variable "cluster_vnet_subnet_id" {
-    description = "the ID of hub VNET"
+variable "cluster_kafka_subnet_id" {
+    description = "the ID of services subnet"
     type = string
 }
 ############################################################################################################

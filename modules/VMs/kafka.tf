@@ -5,7 +5,7 @@ resource "azurerm_network_interface" "kafka_vm_nic" {
 
     ip_configuration {
         name                          = "internal"
-        subnet_id                     = var.cluster_vnet_subnet_id
+        subnet_id                     = var.cluster_kafka_subnet_id
         private_ip_address_allocation = "Dynamic"
     }
 }

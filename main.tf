@@ -16,7 +16,7 @@ module "vlans" {
 }
 
 module "vms" {
-  source = "./modules/vms"
+  source = "./modules/VMs"
 
   # Pass the output from the vlans module to the vms module
 
@@ -26,9 +26,12 @@ module "vms" {
   hub_vnet_subnet_id = module.vlans.hub_vnet_subnet_id
 
   # Cluster Details
-  cluster_vnet_location = module.vlans.location
+  # cluster_vnet_location = module.vlans.cluster_vnet_location
+  # cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
+  # cluster_kafka_subnet_id = module.vlans.cluster_vnet_id
+  cluster_vnet_location = module.vlans.cluster_vnet_location
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
-  cluster_vnet_subnet_id = module.vlans.cluster_vnet_subnet_id
+  cluster_kafka_subnet_id = module.vlans.cluster_subnet_services_id
 }
 
 module "peering" {
