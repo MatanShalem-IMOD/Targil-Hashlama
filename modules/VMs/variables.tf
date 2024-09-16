@@ -32,9 +32,14 @@ variable "cluster_kafka_subnet_id" {
     description = "the ID of services subnet"
     type = string
 }
+
+variable "cluster_gitlab_subnet_id" {
+    description = "the ID of services subnet, same as the kafka but different variable name"
+    type = string
+}
 ############################################################################################################
 
-# Encryption VM section
+# Set Encryption VM section
 ############################################################################################################
 variable "encryption_vm_nic_name" {
   description = "The name of the encryption VM nic"
@@ -65,7 +70,7 @@ variable "encryption_vm_admin_password" {
 ############################################################################################################
 
 
-# Decryption VM section
+# Set Decryption VM section
 ############################################################################################################
 variable "decryption_vm_nic_name" {
   description = "The name of the decryption VM nic"
@@ -96,7 +101,7 @@ variable "decryption_vm_admin_password" {
 ############################################################################################################
 
 
-# Bodel VM section
+# Set Bodel VM section
 ############################################################################################################
 variable "bodel_vm_nic_name" {
   description = "The name of the bodel VM nic"
@@ -127,8 +132,8 @@ variable "bodel_vm_admin_password" {
 ############################################################################################################
 
 
+# Set Kafka VM scetion
 ############################################################################################################
-# Kafka VM scetion
 variable "kafka_vm_nic_name" {
   description = "The name of the kafka VM nic"
   default     = "kafka-vm-nic"
@@ -152,6 +157,38 @@ variable "kafka_vm_admin_username" {
 }
 variable "kafka_vm_admin_password" {
   description = "The admin password of the kafka VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
+  
+}
+
+############################################################################################################
+
+
+# Set Gitlab VM scetion
+############################################################################################################
+variable "gitlab_vm_nic_name" {
+  description = "The name of the gitlab VM nic"
+  default     = "gitlab-vm-nic"
+}
+variable "gitlab_vm_name" {
+  description = "The name of the gitlab VM"
+  default     = "gitlab-vm"
+}
+variable "gitlab_vm_size" {
+  description = "The size of the gitlab VM"
+  default     = "Standard_B16as_v2"
+}
+variable "gitlab_vm_disk_name" {
+  description = "The name of the gitlab VM disk" 
+  default     = "gitlab-vm-disk"
+}
+variable "gitlab_vm_admin_username" {
+  description = "The admin username of the gitlab VM"
+  default     = "mcs"
+  
+}
+variable "gitlab_vm_admin_password" {
+  description = "The admin password of the gitlab VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
   
 }

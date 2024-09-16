@@ -32,6 +32,7 @@ module "vms" {
   cluster_vnet_location = module.vlans.cluster_vnet_location
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
   cluster_kafka_subnet_id = module.vlans.cluster_subnet_services_id
+  cluster_gitlab_subnet_id = module.vlans.cluster_subnet_services_id
 }
 
 module "peering" {
