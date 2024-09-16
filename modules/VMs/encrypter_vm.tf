@@ -51,13 +51,14 @@ resource "azurerm_virtual_machine" "encryption_vm" {
         disable_password_authentication = false
     }
 
-    # Attach the managed data disk
-    storage_data_disk {
-        lun            = 0  # Logical unit number (LUN) for the disk
-        managed_disk_id = azurerm_managed_disk.data_disk.id
-        name = azurerm_managed_disk.data_disk.name
-        caching         = "ReadWrite"
-        create_option = "Empty"
-        disk_size_gb    = 8  # The same size as the data disk created above
+    
+
     }
-}
+
+    # Attach the managed data disk
+    resource "azurerm_virtual_machine_data_disk_attachment" "example" {
+        managed_disk_id    = azurerm_managed_disk.data_disk.id
+        virtual_machine_id = azurerm_virtual_machine.encryption_vm.id
+        lun                = "0"
+        caching            = "ReadWrite"
+    }
