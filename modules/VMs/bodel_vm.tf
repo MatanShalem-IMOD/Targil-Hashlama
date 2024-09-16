@@ -1,7 +1,3 @@
-module "hub_vnet" {
-    source = "../vlans/"
-}
-
 resource "azurerm_network_interface" "bodel_vm_nic" {
     name                = var.bodel_vm_nic_name
     location            = module.hub_vnet.location

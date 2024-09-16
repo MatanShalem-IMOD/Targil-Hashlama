@@ -1,7 +1,3 @@
-module "cluster_vnet" {
-    source = "../vlans/"
-}
-
 resource "azurerm_network_interface" "kafka_vm_nic" {
     name                = var.kafka_vm_nic_name
     location            = module.cluster_vnet.location

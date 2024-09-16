@@ -1,7 +1,3 @@
-module "encryption_vnet" {
-    source = "../vlans/"
-}
-
 resource "azurerm_network_interface" "encryption_vm_nic" {
     name                = var.encryption_vm_nic_name
     location            = module.encryption_vnet.location

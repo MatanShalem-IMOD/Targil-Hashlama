@@ -1,7 +1,3 @@
-module "hub_vnet" {
-    source = "../vlans/"
-}
-
 resource "azurerm_network_interface" "decryption_vm_nic" {
     name                = var.decryption_vm_nic_name
     location            = module.hub_vnet.location
