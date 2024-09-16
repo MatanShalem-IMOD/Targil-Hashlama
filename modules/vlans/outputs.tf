@@ -20,6 +20,11 @@ output "encryption_subnet_name" {
 output "encryption_vnet_ip" {
   value = azurerm_virtual_network.create_encryption_vnet.subnet[0].address_prefixes[0]
 }
+
+output "encryption_resource_group_name" {
+  value = azurerm_resource_group.create_encryption_resource_group.name
+    description = "the Name of encryption resource group"
+}
 ############################################################################################################
 
 # Hub VNET
@@ -43,6 +48,11 @@ output "hub_subnet_name" {
 
 output "hub_vnet_ip" {
   value = azurerm_virtual_network.create_hub_vnet.subnet[0].address_prefixes[0]
+}
+
+output "hub_resource_group_name" {
+  value = azurerm_resource_group.create_hub_resource_group.name
+  description = "the Name of hub resource group"
 }
 ############################################################################################################
 
@@ -69,6 +79,11 @@ output "firewall_subnet_name" {
 output "firewall_vnet_ip" {
   value = azurerm_virtual_network.create_firewall_vnet.subnet[0].address_prefixes[0]
 }
+
+output "firewall_resource_group_name" {
+  value = azurerm_resource_group.create_firewall_resource_group.name
+  description = "the Name of firewall resource group"
+}
 ############################################################################################################
 
 # Cluster
@@ -85,6 +100,11 @@ output "cluster_vnet_name" {
 output "cluster_vnet_id" {
   value = azurerm_virtual_network.create_cluster_vnet.id
   description = "the ID of cluster VNET"
+}
+
+output "cluster_resource_group_name" {
+  value = azurerm_resource_group.create_cluster_resource_group.name
+  description = "the Name of cluster resource group"
 }
 ############################################################################################################
 
