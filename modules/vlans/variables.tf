@@ -66,10 +66,8 @@ variable "address_space_cluster_vnet" {
   description = "the address space of the vnet"
   default     = ["10.1.0.0/18"]
 }
-############################################################################################################
 
-####check DNS####
-############################################################################################################
+# check DNS
 variable "dns_servers_cluster_vnet" {
   description = "the dns_servers of the vnet"
   default     = ["10.1.0.4"]

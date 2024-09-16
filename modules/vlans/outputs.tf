@@ -97,7 +97,7 @@ output "cluster_vnet_id" {
 ############################################################################################################
 
 # Cluster Subnets 
-############################################################################################################
+#########################################
 output "cluster_subnet_openshift_name" {
   value = azurerm_subnet.create_cluster_vnet.openshift_cluster_subnet.name 
 }
@@ -125,4 +125,4 @@ output "cluster_subnet_elk_name" {
 output "cluster_subnet_elk_ip" {
   value = azurerm_virtual_network.create_cluster_vnet.elk_cluster_subnet.address_prefixes[0]
 }
-############################################################################################################
+#########################################
