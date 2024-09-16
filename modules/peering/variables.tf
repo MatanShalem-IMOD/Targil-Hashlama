@@ -47,8 +47,4 @@ variable "firewall_resource_group_name" {
     description = "the name of firewall resource group"
     type = string
 }
-#variable "cluster_resource_group_name" {
-#    description = "the name of cluster resource group"
-#    type = string
-#}
 ############################################
