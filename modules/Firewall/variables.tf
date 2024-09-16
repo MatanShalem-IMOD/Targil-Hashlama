@@ -15,3 +15,27 @@ variable "firewall_vnet_subnet_id" {
     type = string
 }
 ############################################################################################################
+
+# Set Firewall section
+############################################################################################################
+variable "firewall_public_ip_name" {
+  description = "The name of the firewall public ip"
+  default     = "hashlama-firewall-pip"
+  
+}
+
+variable "firewall_nic_name" {
+  description = "The name of the firewall nic"
+  default     = "hashlama-firewall-nic"
+}
+variable "firewall_name" {
+  description = "The name of the firewall"
+  default     = "hashlama-firewall"
+}
+
+variable "firewall_policy_name" {
+  description = "The name of the firewall policy"
+  default     = "hashlama-firewall-policy"
+  
+}
+############################################################################################################
