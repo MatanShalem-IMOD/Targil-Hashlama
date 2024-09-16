@@ -57,7 +57,7 @@ output "hub_subnet_ip_range" {
 }
 
 output "hub_subnet_id" {
-  value = azurerm_subnet.create_hub_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_hub_subnet.id
 }
 
 ############################################################################################################
