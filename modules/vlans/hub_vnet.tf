@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
 
   subnet {
     name             = "main-hub-subnet"
-    address_prefixes = var.address_prefixes_main_hub_subnet
+    address_prefix = var.address_prefixes_main_hub_subnet
   }
 
 

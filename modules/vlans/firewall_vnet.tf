@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "create_firewall_vnet" {
 
   subnet {
     name             = "main-firewall-subnet"
-    address_prefixes = var.address_prefixes_firewall_subnet
+    address_prefix = var.address_prefixes_firewall_subnet
   }
 
 

@@ -19,10 +19,13 @@ module "vms" {
   source = "./modules/vms"
 
   # Pass the output from the vlans module to the vms module
+
+  # Hub Details
   hub_vnet_location = module.vlans.hub_vnet_location
   hub_vnet_resource_group_name = module.vlans.hub_vnet_resource_group_name
   hub_vnet_subnet_id = module.vlans.hub_vnet_subnet_id
 
+  # Cluster Details
   cluster_vnet_location = module.vlans.location
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
   cluster_vnet_subnet_id = module.vlans.cluster_vnet_subnet_id

@@ -13,7 +13,7 @@ resource "azurerm_virtual_network" "create_encryption_vnet" {
 
   subnet {
     name             = "main_encryption_subnet"
-    address_prefixes = var.address_prefixes_encryption_subnet
+    address_prefix = var.address_prefixes_encryption_subnet
   }
 
   tags = {
