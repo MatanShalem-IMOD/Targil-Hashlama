@@ -1,41 +1,46 @@
 # Get Hub VNET details
 ############################################################################################################
 variable "hub_vnet_location" {
-    description = "the Location of the hub VNET"
-    type = string
+  description = "the Location of the hub VNET"
+  type        = string
 }
 
 variable "hub_vnet_resource_group_name" {
-    description = "the Name of the hub resource group"
-    type = string
+  description = "the Name of the hub resource group"
+  type        = string
 }
 
 variable "hub_vnet_subnet_id" {
-    description = "the ID of hub subnet"
-    type = string
+  description = "the ID of hub subnet"
+  type        = string
 }
 ############################################################################################################
 
 # Get Cluster VNET details
 ############################################################################################################
 variable "cluster_vnet_location" {
-    description = "the Location of the cluster VNET"
-    type = string
+  description = "the Location of the cluster VNET"
+  type        = string
 }
 
 variable "cluster_vnet_resource_group_name" {
-    description = "the Name of the cluster resource group"
-    type = string
+  description = "the Name of the cluster resource group"
+  type        = string
 }
 
 variable "cluster_kafka_subnet_id" {
-    description = "the ID of services subnet"
-    type = string
+  description = "the ID of services subnet"
+  type        = string
 }
 
 variable "cluster_gitlab_subnet_id" {
-    description = "the ID of services subnet, same as the kafka but different variable name"
-    type = string
+  description = "the ID of services subnet, same as the kafka but different variable name"
+  type        = string
+}
+
+variable "cluster_elk_subnet_id" {
+  description = "the ID of elk subnet"
+  type        = string
 }
 ############################################################################################################
 
@@ -60,12 +65,12 @@ variable "encryption_vm_disk_name" {
 variable "encryption_vm_admin_username" {
   description = "The admin username of the encryption VM"
   default     = "mcs"
-  
+
 }
 variable "encryption_vm_admin_password" {
   description = "The admin password of the encryption VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-  
+
 }
 ############################################################################################################
 
@@ -91,12 +96,12 @@ variable "decryption_vm_disk_name" {
 variable "decryption_vm_admin_username" {
   description = "The admin username of the decryption VM"
   default     = "mcs"
-  
+
 }
 variable "decryption_vm_admin_password" {
   description = "The admin password of the decryption VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-  
+
 }
 ############################################################################################################
 
@@ -122,12 +127,12 @@ variable "bodel_vm_disk_name" {
 variable "bodel_vm_admin_username" {
   description = "The admin username of the bodel VM"
   default     = "mcs"
-  
+
 }
 variable "bodel_vm_admin_password" {
   description = "The admin password of the bodel VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-  
+
 }
 ############################################################################################################
 
@@ -144,21 +149,21 @@ variable "kafka_vm_name" {
 }
 variable "kafka_vm_size" {
   description = "The size of the kafka VM"
-  default     = "Standard_B16as_v2"
+  default     = "Standard_B16as_v2" # Size: 16 vCPUs, 64 GiB memory
 }
 variable "kafka_vm_disk_name" {
-  description = "The name of the kafka VM disk" 
+  description = "The name of the kafka VM disk"
   default     = "kafka-vm-disk"
 }
 variable "kafka_vm_admin_username" {
   description = "The admin username of the kafka VM"
   default     = "mcs"
-  
+
 }
 variable "kafka_vm_admin_password" {
   description = "The admin password of the kafka VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-  
+
 }
 
 ############################################################################################################
@@ -176,19 +181,49 @@ variable "gitlab_vm_name" {
 }
 variable "gitlab_vm_size" {
   description = "The size of the gitlab VM"
-  default     = "Standard_B16as_v2"
+  default     = "Standard_B8als_v2" # Size: 8 vCPUs, 16 GiB memory
 }
 variable "gitlab_vm_disk_name" {
-  description = "The name of the gitlab VM disk" 
+  description = "The name of the gitlab VM disk"
   default     = "gitlab-vm-disk"
 }
 variable "gitlab_vm_admin_username" {
   description = "The admin username of the gitlab VM"
   default     = "mcs"
-  
+
 }
 variable "gitlab_vm_admin_password" {
   description = "The admin password of the gitlab VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-  
+
+}
+############################################################################################################
+
+
+# Set ELK VM scetion
+############################################################################################################
+variable "elk_vm_nic_name" {
+  description = "The name of the elk VM nic"
+  default     = "elk-vm-nic"
+}
+variable "elk_vm_name" {
+  description = "The name of the elk VM"
+  default     = "elk-vm"
+}
+variable "elk_vm_size" {
+  description = "The size of the elk VM"
+  default     = "Standard_B8als_v2" # Size: 8 vCPUs, 16 GiB memory
+}
+variable "elk_vm_disk_name" {
+  description = "The name of the elk VM disk"
+  default     = "elk-vm-disk"
+}
+variable "elk_vm_admin_username" {
+  description = "The admin username of the elk VM"
+  default     = "mcs"
+
+}
+variable "elk_vm_admin_password" {
+  description = "The admin password of the elk VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 }
