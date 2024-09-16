@@ -10,6 +10,16 @@ resource "azurerm_network_interface" "encryption_vm_nic" {
     }
 }
 
+# Data Disk
+resource "azurerm_managed_disk" "data_disk" {
+  name                 = "encrypter-data-disk"
+  location             =  var.hub_vnet_location
+  resource_group_name  =  var.hub_vnet_resource_group_name
+  storage_account_type = "Standard_LRS"
+  disk_size_gb         = 8  # Size of the data disk in GB
+  create_option        = "Empty"
+}
+
 resource "azurerm_virtual_machine" "encryption_vm" {
     name                  = var.encryption_vm_name
     location              = var.hub_vnet_location
@@ -39,5 +49,15 @@ resource "azurerm_virtual_machine" "encryption_vm" {
 
     os_profile_linux_config {
         disable_password_authentication = false
+    }
+
+    # Attach the managed data disk
+    storage_data_disk {
+        lun            = 0  # Logical unit number (LUN) for the disk
+        managed_disk_id = azurerm_managed_disk.data_disk.id
+        name = azurerm_managed_disk.data_disk.name
+        caching         = "ReadWrite"
+        create_option = "Empty"
+        disk_size_gb    = 8  # The same size as the data disk created above
     }
 }
