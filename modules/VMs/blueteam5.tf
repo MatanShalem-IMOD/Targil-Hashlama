@@ -20,6 +20,9 @@ resource "azurerm_virtual_machine" "blueteam5_vm" {
   network_interface_ids = [azurerm_network_interface.blueteam5_vm_nic.id]
   vm_size               = var.blueteam_windows_vm_size
 
+  delete_os_disk_on_termination    = true   # Ensure OS disk is deleted
+  delete_data_disks_on_termination = true   # Ensure data disks are deleted
+
   storage_os_disk {
     name              = var.blueteam5_vm_disk_name
     caching           = "ReadWrite"
