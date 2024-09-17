@@ -39,6 +39,7 @@ module "vms" {
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
   cluster_kafka_subnet_id          = module.vlans.cluster_subnet_services_id
   cluster_gitlab_subnet_id         = module.vlans.cluster_subnet_services_id
+  cluster_qlik_subnet_id         = module.vlans.cluster_subnet_services_id
   cluster_elk_subnet_id            = module.vlans.cluster_subnet_services_id
 }
 

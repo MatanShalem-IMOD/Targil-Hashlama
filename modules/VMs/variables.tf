@@ -37,6 +37,10 @@ variable "cluster_gitlab_subnet_id" {
   description = "the ID of services subnet, same as the kafka but different variable name"
   type        = string
 }
+variable "cluster_qlik_subnet_id" {
+  description = "the ID of services subnet, same as the kafka but different variable name"
+  type        = string
+}
 
 variable "cluster_elk_subnet_id" {
   description = "the ID of elk subnet"
@@ -217,6 +221,66 @@ variable "gitlab_vm_admin_password" {
   description = "The admin password of the gitlab VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 
+}
+############################################################################################################
+
+
+# Set Qlik VM scetion
+############################################################################################################
+variable "qlik_vm_nic_name" {
+  description = "The name of the qlik VM nic"
+  default     = "qlik-vm-nic"
+}
+variable "qlik_vm_name" {
+  description = "The name of the qlik VM"
+  default     = "qlik-vm"
+}
+variable "qlik_vm_size" {
+  description = "The size of the qlik VM"
+  default     = "Standard_B4als_v2" # Size: 8 vCPUs, 16 GiB memory
+}
+variable "qlik_vm_disk_name" {
+  description = "The name of the qlik VM disk"
+  default     = "qlik-vm-disk"
+}
+variable "qlik_vm_admin_username" {
+  description = "The admin username of the qlik VM"
+  default     = "mcs"
+
+}
+variable "qlik_vm_admin_password" {
+  description = "The admin password of the qlik VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
+}
+############################################################################################################
+
+
+# Set DC VM scetion
+############################################################################################################
+variable "dc_vm_nic_name" {
+  description = "The name of the dc VM nic"
+  default     = "dc-vm-nic"
+}
+variable "dc_vm_name" {
+  description = "The name of the dc VM"
+  default     = "dc-vm"
+}
+variable "dc_vm_size" {
+  description = "The size of the dc VM"
+  default     = "Standard_B2als_v2" # Size: 2 vCPUs, 4 GiB memory
+}
+variable "dc_vm_disk_name" {
+  description = "The name of the dc VM disk"
+  default     = "dc-vm-disk"
+}
+variable "dc_vm_admin_username" {
+  description = "The admin username of the dc VM"
+  default     = "mcs"
+
+}
+variable "dc_vm_admin_password" {
+  description = "The admin password of the dc VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 }
 ############################################################################################################
 
