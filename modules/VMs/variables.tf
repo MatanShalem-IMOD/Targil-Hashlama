@@ -42,6 +42,27 @@ variable "cluster_elk_subnet_id" {
   description = "the ID of elk subnet"
   type        = string
 }
+
+############################################################################################################
+
+# Get Encryption VM section
+############################################################################################################
+variable "encryption_vnet_location" {
+  description = "the Location of the cluster VNET"
+  type        = string
+}
+
+variable "encryption_vnet_resource_group_name" {
+  description = "the Name of the cluster resource group"
+  type        = string
+}
+
+variable "encryption_vnet_subnet_id" {
+  description = "the ID of services subnet"
+  type        = string
+}
+
+
 ############################################################################################################
 
 # Set Encryption VM section
@@ -225,5 +246,36 @@ variable "elk_vm_admin_username" {
 }
 variable "elk_vm_admin_password" {
   description = "The admin password of the elk VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
+}
+
+############################################################################################################
+
+
+# Set Puller VM scetion
+############################################################################################################
+variable "puller_vm_nic_name" {
+  description = "The name of the puller VM nic"
+  default     = "puller-vm-nic"
+}
+variable "puller_vm_name" {
+  description = "The name of the puller VM"
+  default     = "puller-vm"
+}
+variable "puller_vm_size" {
+  description = "The size of the puller VM"
+  default     = "Standard_A0" # Size: 1 vCPUs, 0.75 GiB memory
+}
+variable "puller_vm_disk_name" {
+  description = "The name of the puller VM disk"
+  default     = "puller-vm-disk"
+}
+variable "puller_vm_admin_username" {
+  description = "The admin username of the puller VM"
+  default     = "mcs"
+
+}
+variable "puller_vm_admin_password" {
+  description = "The admin password of the puller VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 }

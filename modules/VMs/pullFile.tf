@@ -1,5 +1,5 @@
-resource "azurerm_network_interface" "encryption_vm_nic" {
-  name                = var.encryption_vm_nic_name
+resource "azurerm_network_interface" "puller_vm_nic" {
+  name                = var.puller_vm_nic_name
   location            = var.encryption_vnet_location
   resource_group_name = var.encryption_vnet_resource_group_name
 
@@ -21,20 +21,17 @@ resource "azurerm_managed_disk" "data_disk" {
   storage_account_type = "Standard_LRS"
   disk_size_gb         = 8 # Size of the data disk in GB
   create_option        = "Empty"
-  tags = {
-    owned_by = "Hashlama015"
-  }
 }
 
-resource "azurerm_virtual_machine" "encryption_vm" {
-  name                  = var.encryption_vm_name
+resource "azurerm_virtual_machine" "puller_vm" {
+  name                  = var.puller_vm_name
   location              = var.encryption_vnet_location
   resource_group_name   = var.encryption_vnet_resource_group_name
-  network_interface_ids = [azurerm_network_interface.encryption_vm_nic.id]
-  vm_size               = var.encryption_vm_size
+  network_interface_ids = [azurerm_network_interface.puller_vm_nic.id]
+  vm_size               = var.puller_vm_size
 
   storage_os_disk {
-    name              = var.encryption_vm_disk_name
+    name              = var.puller_vm_disk_name
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -49,8 +46,8 @@ resource "azurerm_virtual_machine" "encryption_vm" {
 
   os_profile {
     computer_name  = "hostname"
-    admin_username = var.encryption_vm_admin_username
-    admin_password = var.encryption_vm_admin_password
+    admin_username = var.puller_vm_admin_username
+    admin_password = var.puller_vm_admin_password
   }
 
   os_profile_linux_config {
@@ -64,7 +61,7 @@ resource "azurerm_virtual_machine" "encryption_vm" {
 # Attach the managed data disk
 resource "azurerm_virtual_machine_data_disk_attachment" "example" {
   managed_disk_id    = azurerm_managed_disk.data_disk.id
-  virtual_machine_id = azurerm_virtual_machine.encryption_vm.id
+  virtual_machine_id = azurerm_virtual_machine.puller_vm.id
   lun                = "0"
   caching            = "ReadWrite"
 }

@@ -8,6 +8,10 @@ output "encryption_vnet_name" {
   value = azurerm_virtual_network.create_encryption_vnet.name
   description = "the Name of encryption VNET"
 }
+output "encryption_vnet_location" {
+  value = azurerm_virtual_network.create_encryption_vnet.location
+  description = "the location of the encryption vnet"
+}
 output "encryption_vnet_id" {
   value = azurerm_virtual_network.create_encryption_vnet.id
   description = "the ID of encyption VNET"
