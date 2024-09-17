@@ -117,7 +117,7 @@ variable "address_prefixes_GatewaySubnet" {
 ############################################################################################################
 variable "cluster_resource_group_name" {
   description = "the name of the cluster resource group"
-  default     = "Projects-Hashlama15"
+  default     = "hashlama015-vpn-rg" # Note: Change this to the correct name later
   
 }
 

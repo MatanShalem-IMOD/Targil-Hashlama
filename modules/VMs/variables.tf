@@ -16,6 +16,20 @@ variable "hub_vnet_subnet_id" {
 }
 ############################################################################################################
 
+# Get Admin Details
+############################################################################################################
+variable "admin_username" {
+  description = "the VM admin username"
+  type        = string
+}
+
+variable "admin_password" {
+  description = "the VM admin password"
+  type        = string
+}
+
+############################################################################################################
+
 # Get Cluster VNET details
 ############################################################################################################
 variable "cluster_vnet_location" {
@@ -66,21 +80,13 @@ variable "puller_vm_name" {
 }
 variable "puller_vm_size" {
   description = "The size of the puller VM"
-  default     = "Standard_A0" # Size: 1 vCPUs, 0.75 GiB memory
+  default     = "Standard_B2ats_v2" # Size: 1 vCPUs, 0.75 GiB memory
 }
 variable "puller_vm_disk_name" {
   description = "The name of the puller VM disk"
   default     = "puller-vm-disk"
 }
-variable "puller_vm_admin_username" {
-  description = "The admin username of the puller VM"
-  default     = "mcs"
 
-}
-variable "puller_vm_admin_password" {
-  description = "The admin password of the puller VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-}
 ############################################################################################################
 
 # Get Encryption VM section
@@ -121,16 +127,7 @@ variable "encryption_vm_disk_name" {
   description = "The name of the encryption VM disk"
   default     = "encryption-vm-disk"
 }
-variable "encryption_vm_admin_username" {
-  description = "The admin username of the encryption VM"
-  default     = "mcs"
 
-}
-variable "encryption_vm_admin_password" {
-  description = "The admin password of the encryption VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-
-}
 ############################################################################################################
 
 
@@ -152,16 +149,7 @@ variable "decryption_vm_disk_name" {
   description = "The name of the decryption VM disk"
   default     = "decryption-vm-disk"
 }
-variable "decryption_vm_admin_username" {
-  description = "The admin username of the decryption VM"
-  default     = "mcs"
 
-}
-variable "decryption_vm_admin_password" {
-  description = "The admin password of the decryption VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-
-}
 ############################################################################################################
 
 
@@ -183,16 +171,7 @@ variable "bodel_vm_disk_name" {
   description = "The name of the bodel VM disk"
   default     = "bodel-vm-disk"
 }
-variable "bodel_vm_admin_username" {
-  description = "The admin username of the bodel VM"
-  default     = "mcs"
 
-}
-variable "bodel_vm_admin_password" {
-  description = "The admin password of the bodel VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-
-}
 ############################################################################################################
 
 
@@ -213,16 +192,6 @@ variable "kafka_vm_size" {
 variable "kafka_vm_disk_name" {
   description = "The name of the kafka VM disk"
   default     = "kafka-vm-disk"
-}
-variable "kafka_vm_admin_username" {
-  description = "The admin username of the kafka VM"
-  default     = "mcs"
-
-}
-variable "kafka_vm_admin_password" {
-  description = "The admin password of the kafka VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-
 }
 
 ############################################################################################################
@@ -246,16 +215,7 @@ variable "gitlab_vm_disk_name" {
   description = "The name of the gitlab VM disk"
   default     = "gitlab-vm-disk"
 }
-variable "gitlab_vm_admin_username" {
-  description = "The admin username of the gitlab VM"
-  default     = "mcs"
 
-}
-variable "gitlab_vm_admin_password" {
-  description = "The admin password of the gitlab VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-
-}
 ############################################################################################################
 
 
@@ -277,15 +237,7 @@ variable "qlik_vm_disk_name" {
   description = "The name of the qlik VM disk"
   default     = "qlik-vm-disk"
 }
-variable "qlik_vm_admin_username" {
-  description = "The admin username of the qlik VM"
-  default     = "mcs"
 
-}
-variable "qlik_vm_admin_password" {
-  description = "The admin password of the qlik VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-}
 ############################################################################################################
 
 
@@ -307,15 +259,7 @@ variable "dc_vm_disk_name" {
   description = "The name of the dc VM disk"
   default     = "dc-vm-disk"
 }
-variable "dc_vm_admin_username" {
-  description = "The admin username of the dc VM"
-  default     = "mcs"
 
-}
-variable "dc_vm_admin_password" {
-  description = "The admin password of the dc VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-}
 ############################################################################################################
 
 
@@ -337,15 +281,7 @@ variable "elk_vm_disk_name" {
   description = "The name of the elk VM disk"
   default     = "elk-vm-disk"
 }
-variable "elk_vm_admin_username" {
-  description = "The admin username of the elk VM"
-  default     = "mcs"
 
-}
-variable "elk_vm_admin_password" {
-  description = "The admin password of the elk VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-}
 ############################################################################################################
 
 
@@ -367,15 +303,7 @@ variable "blueteam1_vm_disk_name" {
   description = "The name of the blueteam1 VM disk"
   default     = "blueteam1-vm-disk"
 }
-variable "blueteam1_vm_admin_username" {
-  description = "The admin username of the blueteam1 VM"
-  default     = "mcs"
 
-}
-variable "blueteam1_vm_admin_password" {
-  description = "The admin password of the blueteam1 VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-}
 variable "blueteam2_vm_nic_name" {
   description = "The name of the blueteam2 VM nic"
   default     = "blueteam2-vm-nic"
@@ -423,15 +351,7 @@ variable "blueteam4_vm_disk_name" {
   description = "The name of the blueteam4 VM disk"
   default     = "blueteam4-vm-disk"
 }
-variable "blueteam4_vm_admin_username" {
-  description = "The admin username of the blueteam4 VM"
-  default     = "mcs"
 
-}
-variable "blueteam4_vm_admin_password" {
-  description = "The admin password of the blueteam4 VM"
-  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
-}
 variable "blueteam5_vm_nic_name" {
   description = "The name of the blueteam5 VM nic"
   default     = "blueteam5-vm-nic"
