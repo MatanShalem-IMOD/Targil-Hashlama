@@ -1,11 +1,11 @@
-resource "azurerm_network_interface" "dc_vm_nic" {
-  name                = var.dc_vm_nic_name
+resource "azurerm_network_interface" "blueteam5_vm_nic" {
+  name                = var.blueteam5_vm_nic_name
   location            = var.cluster_vnet_location
   resource_group_name = var.cluster_vnet_resource_group_name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = var.cluster_qlik_subnet_id
+    subnet_id                     = var.cluster_blueteam_subnet_id
     private_ip_address_allocation = "Dynamic"
   }
   tags = {
@@ -13,15 +13,15 @@ resource "azurerm_network_interface" "dc_vm_nic" {
   }
 }
 
-resource "azurerm_virtual_machine" "dc_vm" {
-  name                  = var.dc_vm_name
+resource "azurerm_virtual_machine" "blueteam5_vm" {
+  name                  = var.blueteam5_vm_name
   location              = var.cluster_vnet_location
   resource_group_name   = var.cluster_vnet_resource_group_name
-  network_interface_ids = [azurerm_network_interface.dc_vm_nic.id]
-  vm_size               = var.dc_vm_size
+  network_interface_ids = [azurerm_network_interface.blueteam5_vm_nic.id]
+  vm_size               = var.blueteam4_vm_size
 
   storage_os_disk {
-    name              = var.dc_vm_disk_name
+    name              = var.blueteam5_vm_disk_name
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -36,8 +36,8 @@ resource "azurerm_virtual_machine" "dc_vm" {
 
   os_profile {
     computer_name  = "hostname"
-    admin_username = var.dc_vm_admin_username
-    admin_password = var.dc_vm_admin_password
+    admin_username = var.blueteam4_vm_admin_username
+    admin_password = var.blueteam4_vm_admin_password
   }
 
   os_profile_linux_config {

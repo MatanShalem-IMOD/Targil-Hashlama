@@ -41,6 +41,7 @@ module "vms" {
   cluster_gitlab_subnet_id         = module.vlans.cluster_subnet_services_id
   cluster_qlik_subnet_id         = module.vlans.cluster_subnet_services_id
   cluster_elk_subnet_id            = module.vlans.cluster_subnet_services_id
+  cluster_blueteam_subnet_id            = module.vlans.cluster_subnet_services_id
 }
 
 module "peering" {

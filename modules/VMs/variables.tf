@@ -47,6 +47,40 @@ variable "cluster_elk_subnet_id" {
   type        = string
 }
 
+variable "cluster_blueteam_subnet_id" {
+  description = "the ID of blueteam subnet"
+  type        = string
+}
+############################################################################################################
+
+
+# Set Puller VM scetion
+############################################################################################################
+variable "puller_vm_nic_name" {
+  description = "The name of the puller VM nic"
+  default     = "puller-vm-nic"
+}
+variable "puller_vm_name" {
+  description = "The name of the puller VM"
+  default     = "puller-vm"
+}
+variable "puller_vm_size" {
+  description = "The size of the puller VM"
+  default     = "Standard_A0" # Size: 1 vCPUs, 0.75 GiB memory
+}
+variable "puller_vm_disk_name" {
+  description = "The name of the puller VM disk"
+  default     = "puller-vm-disk"
+}
+variable "puller_vm_admin_username" {
+  description = "The admin username of the puller VM"
+  default     = "mcs"
+
+}
+variable "puller_vm_admin_password" {
+  description = "The admin password of the puller VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
+}
 ############################################################################################################
 
 # Get Encryption VM section
@@ -312,34 +346,113 @@ variable "elk_vm_admin_password" {
   description = "The admin password of the elk VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 }
-
 ############################################################################################################
 
 
-# Set Puller VM scetion
+# Set Blueteam Linux VM scetion
 ############################################################################################################
-variable "puller_vm_nic_name" {
-  description = "The name of the puller VM nic"
-  default     = "puller-vm-nic"
+variable "blueteam1_vm_nic_name" {
+  description = "The name of the blueteam1 VM nic"
+  default     = "blueteam1-vm-nic"
 }
-variable "puller_vm_name" {
-  description = "The name of the puller VM"
-  default     = "puller-vm"
+variable "blueteam1_vm_name" {
+  description = "The name of the blueteam1 VM"
+  default     = "blueteam1-vm"
 }
-variable "puller_vm_size" {
-  description = "The size of the puller VM"
-  default     = "Standard_A0" # Size: 1 vCPUs, 0.75 GiB memory
+variable "blueteam1_vm_size" {
+  description = "The size of the blueteam1 VM"
+  default     = "Standard_B4as_v2" # Size: 4 vCPUs, 16 GiB memory
 }
-variable "puller_vm_disk_name" {
-  description = "The name of the puller VM disk"
-  default     = "puller-vm-disk"
+variable "blueteam1_vm_disk_name" {
+  description = "The name of the blueteam1 VM disk"
+  default     = "blueteam1-vm-disk"
 }
-variable "puller_vm_admin_username" {
-  description = "The admin username of the puller VM"
+variable "blueteam1_vm_admin_username" {
+  description = "The admin username of the blueteam1 VM"
   default     = "mcs"
 
 }
-variable "puller_vm_admin_password" {
-  description = "The admin password of the puller VM"
+variable "blueteam1_vm_admin_password" {
+  description = "The admin password of the blueteam1 VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
+}
+variable "blueteam2_vm_nic_name" {
+  description = "The name of the blueteam2 VM nic"
+  default     = "blueteam2-vm-nic"
+}
+variable "blueteam2_vm_name" {
+  description = "The name of the blueteam2 VM"
+  default     = "blueteam2-vm"
+}
+variable "blueteam2_vm_disk_name" {
+  description = "The name of the blueteam2 VM disk"
+  default     = "blueteam2-vm-disk"
+}
+variable "blueteam3_vm_nic_name" {
+  description = "The name of the blueteam3 VM nic"
+  default     = "blueteam3-vm-nic"
+}
+variable "blueteam3_vm_name" {
+  description = "The name of the blueteam3 VM"
+  default     = "blueteam3-vm"
+}
+variable "blueteam3_vm_disk_name" {
+  description = "The name of the blueteam3 VM disk"
+  default     = "blueteam3-vm-disk"
+}
+
+############################################################################################################
+
+
+# Set Blueteam Windows VM scetion
+############################################################################################################
+
+variable "blueteam4_vm_size" {
+  description = "The size of the blueteam1 VM"
+  default     = "Standard_B8als_v4" # Size: 4 vCPUs, 8 GiB memory
+}
+variable "blueteam4_vm_nic_name" {
+  description = "The name of the blueteam4 VM nic"
+  default     = "blueteam4-vm-nic"
+}
+variable "blueteam4_vm_name" {
+  description = "The name of the blueteam4 VM"
+  default     = "blueteam4-vm"
+}
+variable "blueteam4_vm_disk_name" {
+  description = "The name of the blueteam4 VM disk"
+  default     = "blueteam4-vm-disk"
+}
+variable "blueteam4_vm_admin_username" {
+  description = "The admin username of the blueteam4 VM"
+  default     = "mcs"
+
+}
+variable "blueteam4_vm_admin_password" {
+  description = "The admin password of the blueteam4 VM"
+  default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
+}
+variable "blueteam5_vm_nic_name" {
+  description = "The name of the blueteam5 VM nic"
+  default     = "blueteam5-vm-nic"
+}
+variable "blueteam5_vm_name" {
+  description = "The name of the blueteam5 VM"
+  default     = "blueteam5-vm"
+}
+variable "blueteam5_vm_disk_name" {
+  description = "The name of the blueteam5 VM disk"
+  default     = "blueteam5-vm-disk"
+}
+variable "blueteam6_vm_nic_name" {
+  description = "The name of the blueteam6 VM nic"
+  default     = "blueteam6-vm-nic"
+}
+variable "blueteam6_vm_name" {
+  description = "The name of the blueteam6 VM"
+  default     = "blueteam6-vm"
+}
+variable "blueteam6_vm_disk_name" {
+  description = "The name of the blueteam6 VM disk"
+  default     = "blueteam6-vm-disk"
 }
