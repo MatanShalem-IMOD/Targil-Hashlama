@@ -13,16 +13,6 @@ resource "azurerm_network_interface" "puller_vm_nic" {
   }
 }
 
-# Data Disk
-resource "azurerm_managed_disk" "data_disk" {
-  name                 = "encrypter-data-disk"
-  location             = var.encryption_vnet_location
-  resource_group_name  = var.encryption_vnet_resource_group_name
-  storage_account_type = "Standard_LRS"
-  disk_size_gb         = 8 # Size of the data disk in GB
-  create_option        = "Empty"
-}
-
 resource "azurerm_virtual_machine" "puller_vm" {
   name                  = var.puller_vm_name
   location              = var.encryption_vnet_location
@@ -56,12 +46,4 @@ resource "azurerm_virtual_machine" "puller_vm" {
   tags = {
     owned_by = "Hashlama015"
   }
-}
-
-# Attach the managed data disk
-resource "azurerm_virtual_machine_data_disk_attachment" "example" {
-  managed_disk_id    = azurerm_managed_disk.data_disk.id
-  virtual_machine_id = azurerm_virtual_machine.puller_vm.id
-  lun                = "0"
-  caching            = "ReadWrite"
 }
