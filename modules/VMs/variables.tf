@@ -407,9 +407,9 @@ variable "blueteam3_vm_disk_name" {
 # Set Blueteam Windows VM scetion
 ############################################################################################################
 
-variable "blueteam4_vm_size" {
+variable "blueteam_windows_vm_size" {
   description = "The size of the blueteam1 VM"
-  default     = "Standard_B8als_v4" # Size: 4 vCPUs, 8 GiB memory
+  default     = "Standard_B4als_v2" # Size: 4 vCPUs, 8 GiB memory
 }
 variable "blueteam4_vm_nic_name" {
   description = "The name of the blueteam4 VM nic"

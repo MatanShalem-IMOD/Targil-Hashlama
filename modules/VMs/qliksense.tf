@@ -40,9 +40,9 @@ resource "azurerm_virtual_machine" "qlik_vm" {
     admin_password = var.qlik_vm_admin_password
   }
 
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
+  # os_profile_windows_config {
+  #   disable_password_authentication = false
+  # }
   tags = {
     owned_by = "Hashlama015"
   }

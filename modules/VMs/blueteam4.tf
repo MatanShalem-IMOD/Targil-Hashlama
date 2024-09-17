@@ -18,7 +18,7 @@ resource "azurerm_virtual_machine" "blueteam4_vm" {
   location              = var.cluster_vnet_location
   resource_group_name   = var.cluster_vnet_resource_group_name
   network_interface_ids = [azurerm_network_interface.blueteam4_vm_nic.id]
-  vm_size               = var.blueteam4_vm_size
+  vm_size               = var.blueteam_windows_vm_size
 
   storage_os_disk {
     name              = var.blueteam4_vm_disk_name
@@ -40,9 +40,9 @@ resource "azurerm_virtual_machine" "blueteam4_vm" {
     admin_password = var.blueteam4_vm_admin_password
   }
 
-  os_profile_linux_config {
-    disable_password_authentication = false
-  }
+  # os_profile_windows_config {
+  #   disable_password_authentication = false
+  # }
   tags = {
     owned_by = "Hashlama015"
   }

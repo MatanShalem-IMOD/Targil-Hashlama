@@ -38,7 +38,7 @@ variable "dns_servers_hub_vnet" {
 
 variable "address_prefixes_main_hub_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.0.2.4/24"]
+  default     = ["10.0.2.0/24"]
 }
 ############################################################################################################
 
