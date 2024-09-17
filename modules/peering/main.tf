@@ -25,6 +25,8 @@ resource "azurerm_virtual_network_peering" "create_peer_hub_to_encryption" {
     allow_gateway_transit = false
 }
 
+#######################################
+
 resource "azurerm_virtual_network_peering" "create_peer_hub_to_firewall" {
   name                      = "hub-to-firewall"
   resource_group_name       = var.hub_resource_group_name
