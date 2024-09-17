@@ -22,7 +22,6 @@ resource "azurerm_virtual_network" "create_vpn_vnet" {
 
   tags = {
     owned_by = "Hashlama015"
-    team     = "cyber_purple"
   }
 }
 

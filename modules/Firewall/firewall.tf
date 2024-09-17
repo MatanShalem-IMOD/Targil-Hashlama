@@ -5,6 +5,9 @@ resource "azurerm_public_ip" "firewall_pip" {
     resource_group_name = var.firewall_vnet_resource_group_name
     allocation_method   = "Static"
     sku                 = "Standard"
+    tags = {
+    owned_by = "Hashlama015"
+    }
 }
 
 # Create Firewall Policy
@@ -12,7 +15,9 @@ resource "azurerm_firewall_policy" "firewall_policy" {
     name                = var.firewall_policy_name
     resource_group_name = var.firewall_vnet_resource_group_name
     location            = var.firewall_vnet_location
-
+    tags = {
+    owned_by = "Hashlama015"
+    }
 }
 
 # Create Firewall Policy Rule Collection Group

@@ -21,7 +21,6 @@ resource "azurerm_virtual_network" "create_encryption_vnet" {
 
   tags = {
     owned_by = "Hashlama015"
-    team = "cyber_purple"
   }
 }
 

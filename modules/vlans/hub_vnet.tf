@@ -21,9 +21,7 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
 
 
   tags = {
-    team     = "cyber_purple"
     owned_by = "Hashlama015"
-
   }
 }
 

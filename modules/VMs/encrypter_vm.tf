@@ -21,6 +21,9 @@ resource "azurerm_managed_disk" "data_disk" {
   storage_account_type = "Standard_LRS"
   disk_size_gb         = 8 # Size of the data disk in GB
   create_option        = "Empty"
+  tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 resource "azurerm_virtual_machine" "encryption_vm" {
