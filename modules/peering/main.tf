@@ -10,6 +10,18 @@ resource "azurerm_virtual_network_peering" "create_peer_encryption_to_hub" {
   # `allow_gateway_transit` must be set to false for vnet Global Peering
   allow_gateway_transit = false
 }
+#######try doal way########
+resource "azurerm_virtual_network_peering" "create_peer_hub_to_encryption" {
+  name                      = "hub-to-encryption"
+  resource_group_name       = var.hub_resource_group_name
+  virtual_network_name      = var.hub_vnet_name
+  remote_virtual_network_id = var.encryption_vnet_id
+
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+  allow_gateway_transit        = false
+}
+###########################
 
 resource "azurerm_virtual_network_peering" "create_peer_hub_to_firewall" {
   name                      = "hub-to-firewall"
