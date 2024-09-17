@@ -1,7 +1,7 @@
 # Encryption
 ############################################################################################################
 output "encryption_resource_group_name" {
-    value = data.azurerm_resource_group.existing_cluster_rg.name
+    value = data.azurerm_resource_group.existing_encryption_rg.name ##
     description = "the Name of encryption resource group"
 }
 output "encryption_vnet_name" {
