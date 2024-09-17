@@ -107,7 +107,7 @@ variable "dns_servers_vpn_vnet" {
   default     = ["10.0.4.4"]
 }
 
-variable "address_prefixes_vpn_subnet" {
+variable "address_prefixes_GatewaySubnet" {
   description = "the address prefixes of the subnet"
   default     = ["10.0.4.0/24"]
 }

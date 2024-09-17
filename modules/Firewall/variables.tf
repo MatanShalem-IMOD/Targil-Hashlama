@@ -1,4 +1,4 @@
-# Get Hub VNET details
+# Get firewall VNET details
 ############################################################################################################
 variable "firewall_vnet_location" {
     description = "the Location of the hub VNET"

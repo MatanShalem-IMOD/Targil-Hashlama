@@ -27,8 +27,8 @@ resource "azurerm_virtual_network" "create_vpn_vnet" {
 }
 
 resource "azurerm_subnet" "create_vpn_subnet" {
-  name                 = "main-vpn-subnet"
+  name                 = "GatewaySubnet"
   resource_group_name  = azurerm_resource_group.create_vpn_resource_group.name
   virtual_network_name = azurerm_virtual_network.create_vpn_vnet.name
-  address_prefixes     = var.address_prefixes_vpn_subnet # azurerm_subnet expects "address_prefixes" instead of "address_prefix"
+  address_prefixes     = var.address_prefixes_GatewaySubnet # azurerm_subnet expects "address_prefixes" instead of "address_prefix"
 }
