@@ -93,3 +93,22 @@ variable "address_prefixes_elk_cluster_subnet" {
   default     = ["10.1.56.0/21"]
 }
 ############################################################################################################
+
+
+# VPN VNET
+############################################################################################################
+variable "address_space_vpn_vnet" {
+  description = "the address space of the vnet"
+  default     = ["10.0.4.0/24"]
+}
+
+variable "dns_servers_vpn_vnet" {
+  description = "the dns_servers of the vnet"
+  default     = ["10.0.4.4"]
+}
+
+variable "address_prefixes_vpn_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.0.4.0/24"]
+}
+############################################################################################################

@@ -162,3 +162,32 @@ output "cluster_subnet_elk_id" {
   value = azurerm_subnet.create_elk_cluster_subnet.id
 }
 #########################################
+
+
+# vpn
+############################################################################################################
+output "vpn_resource_group_name" {
+    value = azurerm_resource_group.create_vpn_resource_group.name
+    description = "the Name of vpn resource group"
+}
+output "vpn_vnet_name" {
+  value = azurerm_virtual_network.create_vpn_vnet.name
+  description = "the Name of vpn VNET"
+}
+
+output "vpn_vnet_id" {
+  value = azurerm_virtual_network.create_vpn_vnet.id
+  description = "the ID of vpn VNET"
+}
+
+output "vpn_subnet_name" {
+  value = azurerm_subnet.create_vpn_subnet.name
+}
+
+output "vpn_subnet_ip_range" {
+  value = resource.azurerm_subnet.create_vpn_subnet.address_prefixes[0]
+}
+
+output "vpn_subnet_id" {
+  value = azurerm_subnet.create_vpn_subnet.address_prefixes[0]
+}
