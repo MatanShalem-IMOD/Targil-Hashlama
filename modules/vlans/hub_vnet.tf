@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "create_hub_resource_group" {
   name     = "hub-resource-group"
   location = var.location
+  tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 # create virtual network and subnet for hub
@@ -18,7 +21,9 @@ resource "azurerm_virtual_network" "create_hub_vnet" {
 
 
   tags = {
-    team = "cyber_purple"
+    team     = "cyber_purple"
+    owned_by = "Hashlama015"
+
   }
 }
 

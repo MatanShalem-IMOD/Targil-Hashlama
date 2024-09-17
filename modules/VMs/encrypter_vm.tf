@@ -8,6 +8,9 @@ resource "azurerm_network_interface" "encryption_vm_nic" {
     subnet_id                     = var.hub_vnet_subnet_id
     private_ip_address_allocation = "Dynamic"
   }
+  tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 # Data Disk
@@ -50,9 +53,9 @@ resource "azurerm_virtual_machine" "encryption_vm" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-
-
-
+  tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 # Attach the managed data disk

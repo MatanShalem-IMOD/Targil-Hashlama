@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "create_firewall_resource_group" {
   name     = "firewall-resource-group"
   location = var.location
+  tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 # create virtual network and subnet for firewall
@@ -18,7 +21,8 @@ resource "azurerm_virtual_network" "create_firewall_vnet" {
 
 
   tags = {
-    team = "cyber_purple"
+    owned_by = "Hashlama015"
+    team     = "cyber_purple"
   }
 }
 

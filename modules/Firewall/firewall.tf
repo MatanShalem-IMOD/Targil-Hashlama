@@ -33,6 +33,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "firewall_policy_rule_c
             protocols = ["*"]    
         }
     }
+    
 }
 
 # Create Firewall
@@ -49,5 +50,8 @@ resource "azurerm_firewall" "azure_firewall" {
         subnet_id            = var.firewall_vnet_subnet_id
         public_ip_address_id = azurerm_public_ip.firewall_pip.id
     }
+    tags = {
+    owned_by = "Hashlama015"
+  }
 }
 

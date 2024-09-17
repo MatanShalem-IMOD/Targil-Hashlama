@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "create_encryption_resource_group" {
   name     = "encryption_resource_group"
   location = var.location
+  tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 # create virtual network and subnet for encryption
@@ -17,6 +20,7 @@ resource "azurerm_virtual_network" "create_encryption_vnet" {
   # }
 
   tags = {
+    owned_by = "Hashlama015"
     team = "cyber_purple"
   }
 }

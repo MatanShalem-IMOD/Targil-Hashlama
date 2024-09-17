@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "create_cluster_resource_group" {
   name     = "cluster_resource_group"
   location = var.location
+   tags = {
+    owned_by = "Hashlama015"
+  }
 }
 
 # create virtual network and subnet for cluster
@@ -11,7 +14,7 @@ resource "azurerm_virtual_network" "create_cluster_vnet" {
   address_space       = var.address_space_cluster_vnet
   #dns_servers         = var.dns_servers_cluster_vnet
   tags = {
-    team = "tashtiot"
+    owned_by = "Hashlama015"
   }
 }
 
@@ -21,6 +24,7 @@ resource "azurerm_subnet" "create_openshift_cluster_subnet" {
   resource_group_name  = azurerm_resource_group.create_cluster_resource_group.name
   virtual_network_name = azurerm_virtual_network.create_cluster_vnet.name
   address_prefixes     = var.address_prefixes_openshift_cluster_subnet # azurerm_subnet expects "address_prefixes" instead of "address_prefix"
+  
 }
 
 resource "azurerm_subnet" "create_blue_team_cluster_subnet" {
