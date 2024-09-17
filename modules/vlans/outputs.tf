@@ -1,7 +1,7 @@
 # Encryption
 ############################################################################################################
 output "encryption_resource_group_name" {
-    value = azurerm_resource_group.create_encryption_resource_group.name
+    value = data.azurerm_resource_group.existing_cluster_rg.name
     description = "the Name of encryption resource group"
 }
 output "encryption_vnet_name" {
@@ -35,7 +35,7 @@ output "encryption_subnet_id" {
 # Hub VNET
 ############################################################################################################
 output "hub_resource_group_name" {
-    value = azurerm_resource_group.create_hub_resource_group.name
+    value = data.azurerm_resource_group.existing_hub_rg.name
     description = "the Name of hub resource group"
 }
 output "hub_vnet_name" {
@@ -69,7 +69,7 @@ output "hub_subnet_id" {
 # Firewall
 ############################################################################################################
 output "firewall_resource_group_name" {
-    value = azurerm_resource_group.create_firewall_resource_group.name
+    value = data.azurerm_resource_group.existing_firewall_rg.name
     description = "the Name of firewall resource group"
 }
 output "firewall_vnet_name" {
@@ -103,7 +103,7 @@ output "cluster_vnet_location" {
     description = "the location of cluster vnet"
 }
 output "cluster_resource_group_name" {
-    value = azurerm_resource_group.create_cluster_resource_group.name
+    value = data.azurerm_resource_group.existing_cluster_rg.name
     description = "the Name of cluster resource group"
 }
 output "cluster_vnet_name" {
@@ -171,7 +171,7 @@ output "cluster_subnet_elk_id" {
 # vpn
 ############################################################################################################
 output "vpn_resource_group_name" {
-    value = azurerm_resource_group.create_vpn_resource_group.name
+    value = data.azurerm_resource_group.existing_vpn_rg.name
     description = "the Name of vpn resource group"
 }
 output "vpn_vnet_name" {
