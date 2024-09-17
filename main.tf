@@ -66,3 +66,11 @@ module "peering" {
   cluster_resource_group_name    = module.vlans.cluster_resource_group_name
   # vpn_resource_group_name        = module.vlans.vpn_resource_group_name
 }
+
+module "registry" {
+  source = "./modules/registry"
+
+  # Pass the output from the vlans module to the registry module
+  cluster_vnet_location            = module.vlans.cluster_vnet_location
+  cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
+}
