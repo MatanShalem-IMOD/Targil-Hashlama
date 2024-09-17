@@ -26,7 +26,7 @@ output "encryption_subnet_ip_range" {
 }
 
 output "encryption_subnet_id" {
-  value = azurerm_subnet.create_encryption_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_encryption_subnet.id
   
 }
 
@@ -91,7 +91,7 @@ output "firewall_subnet_ip_range" {
 }
 
 output "firewall_subnet_id" {
-  value = azurerm_subnet.create_firewall_subnet.address_prefixes[0]
+  value = azurerm_subnet.create_firewall_subnet.id
 }
 
 ############################################################################################################
@@ -168,30 +168,31 @@ output "cluster_subnet_elk_id" {
 #########################################
 
 
-# vpn
+# # vpn
+# ############################################################################################################
+# output "vpn_resource_group_name" {
+#     value = data.azurerm_resource_group.existing_vpn_rg.name
+#     description = "the Name of vpn resource group"
+# }
+# output "vpn_vnet_name" {
+#   value = azurerm_virtual_network.create_vpn_vnet.name
+#   description = "the Name of vpn VNET"
+# }
+
+# output "vpn_vnet_id" {
+#   value = azurerm_virtual_network.create_vpn_vnet.id
+#   description = "the ID of vpn VNET"
+# }
+
+# output "vpn_subnet_name" {
+#   value = azurerm_subnet.create_vpn_subnet.name
+# }
+
+# output "vpn_subnet_ip_range" {
+#   value = resource.azurerm_subnet.create_vpn_subnet.address_prefixes[0]
+# }
+
+# output "vpn_subnet_id" {
+#   value = azurerm_subnet.create_vpn_subnet.address_prefixes[0]
+# }
 ############################################################################################################
-output "vpn_resource_group_name" {
-    value = data.azurerm_resource_group.existing_vpn_rg.name
-    description = "the Name of vpn resource group"
-}
-output "vpn_vnet_name" {
-  value = azurerm_virtual_network.create_vpn_vnet.name
-  description = "the Name of vpn VNET"
-}
-
-output "vpn_vnet_id" {
-  value = azurerm_virtual_network.create_vpn_vnet.id
-  description = "the ID of vpn VNET"
-}
-
-output "vpn_subnet_name" {
-  value = azurerm_subnet.create_vpn_subnet.name
-}
-
-output "vpn_subnet_ip_range" {
-  value = resource.azurerm_subnet.create_vpn_subnet.address_prefixes[0]
-}
-
-output "vpn_subnet_id" {
-  value = azurerm_subnet.create_vpn_subnet.address_prefixes[0]
-}

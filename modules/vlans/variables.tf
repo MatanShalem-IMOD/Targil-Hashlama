@@ -117,7 +117,7 @@ variable "address_prefixes_GatewaySubnet" {
 ############################################################################################################
 variable "cluster_resource_group_name" {
   description = "the name of the cluster resource group"
-  default     = "hashlama015-cluster-rg"
+  default     = "Projects-Hashlama15"
   
 }
 
@@ -139,9 +139,9 @@ variable "hub_resource_group_name" {
   
 }
 
-variable "vpn_resource_group_name" {
-  description = "the name of the vpn resource group"
-  default     = "hashlama015-tashtiot-rg"
+# variable "vpn_resource_group_name" {
+#   description = "the name of the vpn resource group"
+#   default     = "hashlama015-vpn-rg"
   
-}
+# }
 ############################################################################################################
