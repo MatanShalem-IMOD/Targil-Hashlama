@@ -17,6 +17,11 @@ variable "cluster_vnet_id" {
     description = "the ID of cluster VNET"
     type = string
 }
+
+variable "vpn_vnet_id" {
+    description = "the ID of VPN VNET"
+    type = string
+}
 #venet names
 variable "encryption_vnet_name" {
     description = "the name of encryption VNET"
@@ -34,6 +39,10 @@ variable "cluster_vnet_name" {
     description = "the name of cluster VNET"
     type = string
 }
+variable "vpn_vnet_name" {
+    description = "the name of VPN VNET"
+    type = string
+}
 #venet resource group names
 variable "encryption_resource_group_name" {
     description = "the name of encryption resource group"
@@ -49,6 +58,10 @@ variable "firewall_resource_group_name" {
 }
 variable "cluster_resource_group_name" {
     description = "the name of cluster resource group"
+    type = string
+}
+variable "vpn_resource_group_name" {
+    description = "the name of VPN resource group"
     type = string
 }
 ############################################
