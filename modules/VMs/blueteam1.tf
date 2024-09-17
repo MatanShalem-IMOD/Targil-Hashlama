@@ -36,8 +36,8 @@ resource "azurerm_virtual_machine" "blueteam1_vm" {
 
   os_profile {
     computer_name  = "hostname"
-    admin_username = var.blueteam1_vm_admin_username
-    admin_password = var.blueteam1_vm_admin_password
+    admin_username = var.admin_username
+    admin_password = var.admin_password
   }
 
   os_profile_linux_config {

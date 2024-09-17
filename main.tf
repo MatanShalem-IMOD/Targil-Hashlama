@@ -20,6 +20,8 @@ module "vms" {
 
   # Pass the output from the vlans module to the vms module
 
+  admin_username = jsondecode(file("./credentials.json")).admin_username.value
+  admin_password = jsondecode(file("./credentials.json")).admin_password.value
 
   # encryption details
   encryption_vnet_location            = module.vlans.encryption_vnet_location

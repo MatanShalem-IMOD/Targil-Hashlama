@@ -36,13 +36,13 @@ resource "azurerm_virtual_machine" "dc_vm" {
 
   os_profile {
     computer_name  = "hostname"
-    admin_username = var.dc_vm_admin_username
-    admin_password = var.dc_vm_admin_password
+    admin_username = var.admin_username
+    admin_password = var.admin_password
   }
 
-  # os_profile_windows_config {
-  #   disable_password_authentication = false
-  # }
+  os_profile_windows_config {
+    # disable_password_authentication = false
+  }
   
   tags = {
     owned_by = "Hashlama015"
