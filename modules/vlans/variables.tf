@@ -9,18 +9,18 @@ variable "location" {
 ############################################################################################################
 variable "address_space_encryption_vnet" {
   description = "the address space of the vnet"
-  default     = ["10.0.1.0/24"]
+  default     = ["10.200.1.0/24"]
 }
 
 variable "dns_servers_encryption_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.0.1.4"]
+  default     = ["10.200.1.4"]
 }
 
 
 variable "address_prefixes_encryption_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.0.1.0/24"]
+  default     = ["10.200.1.0/24"]
 }
 ############################################################################################################
 
@@ -28,17 +28,17 @@ variable "address_prefixes_encryption_subnet" {
 ############################################################################################################
 variable "address_space_hub_vnet" {
   description = "the address space of the vnet"
-  default     = ["10.0.2.0/24"]
+  default     = ["10.200.2.0/24"]
 }
 
 variable "dns_servers_hub_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.0.2.4"]
+  default     = ["10.200.2.4"]
 }
 
 variable "address_prefixes_main_hub_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.0.2.0/24"]
+  default     = ["10.200.2.0/24"]
 }
 ############################################################################################################
 
@@ -46,17 +46,17 @@ variable "address_prefixes_main_hub_subnet" {
 ############################################################################################################
 variable "address_space_firewall_vnet" {
   description = "the address space of the vnet"
-  default     = ["10.0.3.0/24"]
+  default     = ["10.200.3.0/24"]
 }
 
 variable "dns_servers_firewall_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.0.3.4"]
+  default     = ["10.200.3.4"]
 }
 
 variable "address_prefixes_firewall_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.0.3.0/24"]
+  default     = ["10.200.3.0/24"]
 }
 ############################################################################################################
 
@@ -64,33 +64,33 @@ variable "address_prefixes_firewall_subnet" {
 ############################################################################################################
 variable "address_space_cluster_vnet" {
   description = "the address space of the vnet"
-  default     = ["10.1.0.0/18"]
+  default     = ["10.200.16.0/20"]
 }
 
 # check DNS
 variable "dns_servers_cluster_vnet" {
   description = "the dns_servers of the vnet"
-  default     = ["10.1.0.4"]
+  default     = ["10.200.16.4"]
 }
 
 variable "address_prefixes_openshift_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.1.0.0/19"]
+  default     = ["10.200.16.0/21"]
 }
 
 variable "address_prefixes_blueteam_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.1.32.0/20"]
+  default     = ["10.200.24.0/22"]
 }
 
 variable "address_prefixes_services_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.1.48.0/21"]
+  default     = ["10.200.28.0/23"]
 }
 
 variable "address_prefixes_elk_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.1.56.0/21"]
+  default     = ["10.200.30.0/23"]
 }
 ############################################################################################################
 
