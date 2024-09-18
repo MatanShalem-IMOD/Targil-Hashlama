@@ -82,3 +82,13 @@ module "registry" {
   cluster_vnet_location            = module.vlans.cluster_vnet_location
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
 }
+
+# module "firewall" {
+#   source = "./modules/Firewall"
+
+#   # Pass the output from the vlans module to the firewall module
+#   firewall_vnet_location            = module.vlans.firewall_vnet_location
+#   firewall_vnet_resource_group_name = module.vlans.firewall_resource_group_name
+#   firewall_vnet_subnet_id           = module.vlans.firewall_subnet_id
+  
+# }

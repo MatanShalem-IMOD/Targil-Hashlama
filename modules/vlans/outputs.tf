@@ -72,6 +72,10 @@ output "firewall_resource_group_name" {
     value = data.azurerm_resource_group.existing_firewall_rg.name
     description = "the Name of firewall resource group"
 }
+output "firewall_vnet_location" {
+    value = azurerm_virtual_network.create_firewall_vnet.location
+    description = "the location of firewall vnet"
+}
 output "firewall_vnet_name" {
   value = azurerm_virtual_network.create_firewall_vnet.name
   description = "the Name of firewall VNET"
