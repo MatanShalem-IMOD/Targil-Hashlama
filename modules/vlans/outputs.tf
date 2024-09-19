@@ -68,35 +68,35 @@ output "hub_subnet_id" {
 
 # Firewall
 ############################################################################################################
-output "firewall_resource_group_name" {
-    value = data.azurerm_resource_group.existing_firewall_rg.name
-    description = "the Name of firewall resource group"
-}
-output "firewall_vnet_location" {
-    value = azurerm_virtual_network.create_firewall_vnet.location
-    description = "the location of firewall vnet"
-}
-output "firewall_vnet_name" {
-  value = azurerm_virtual_network.create_firewall_vnet.name
-  description = "the Name of firewall VNET"
-}
+# output "firewall_resource_group_name" {
+#     value = data.azurerm_resource_group.existing_firewall_rg.name
+#     description = "the Name of firewall resource group"
+# }
+# output "firewall_vnet_location" {
+#     value = azurerm_virtual_network.create_firewall_vnet.location
+#     description = "the location of firewall vnet"
+# }
+# output "firewall_vnet_name" {
+#   value = azurerm_virtual_network.create_firewall_vnet.name
+#   description = "the Name of firewall VNET"
+# }
 
-output "firewall_vnet_id" {
-  value = azurerm_virtual_network.create_firewall_vnet.id
-  description = "the ID of firewall VNET"
-}
+# output "firewall_vnet_id" {
+#   value = azurerm_virtual_network.create_firewall_vnet.id
+#   description = "the ID of firewall VNET"
+# }
 
-output "firewall_subnet_name" {
-  value = azurerm_subnet.create_firewall_subnet.name
-}
+# output "firewall_subnet_name" {
+#   value = azurerm_subnet.create_firewall_subnet.name
+# }
 
-output "firewall_subnet_ip_range" {
-  value = resource.azurerm_subnet.create_firewall_subnet.address_prefixes[0]
-}
+# output "firewall_subnet_ip_range" {
+#   value = resource.azurerm_subnet.create_firewall_subnet.address_prefixes[0]
+# }
 
-output "firewall_subnet_id" {
-  value = azurerm_subnet.create_firewall_subnet.id
-}
+# output "firewall_subnet_id" {
+#   value = azurerm_subnet.create_firewall_subnet.id
+# }
 
 ############################################################################################################
 
