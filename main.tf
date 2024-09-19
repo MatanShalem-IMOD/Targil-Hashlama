@@ -83,6 +83,20 @@ module "registry" {
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
 }
 
+module "blob_storage" {
+  source = "./modules/BlobStorage"
+
+  # Pass the output from the vlans module to the blob storage module 
+}
+
+# module "network_watcher" {
+#   source = "./modules/NetworkWatcher"
+
+#   # Pass the output from the vlans module to the network watcher module
+  
+# }
+
+
 # module "firewall" {
 #   source = "./modules/Firewall"
 
