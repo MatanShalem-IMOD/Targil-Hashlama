@@ -92,19 +92,19 @@ module "peering" {
 }
 =======
   hub_vnet_id        = module.vlans.hub_vnet_id
-  firewall_vnet_id   = module.vlans.firewall_vnet_id
+  # firewall_vnet_id   = module.vlans.firewall_vnet_id
   cluster_vnet_id    = module.vlans.cluster_vnet_id
   # vpn_vnet_id        = module.vlans.vpn_vnet_id
 
   encryption_vnet_name = module.vlans.encryption_vnet_name
   hub_vnet_name        = module.vlans.hub_vnet_name
-  firewall_vnet_name   = module.vlans.firewall_vnet_name
+  # firewall_vnet_name   = module.vlans.firewall_vnet_name
   cluster_vnet_name    = module.vlans.cluster_vnet_name
   # vpn_vnet_name        = module.vlans.vpn_vnet_name
 
   encryption_resource_group_name = module.vlans.encryption_resource_group_name
   hub_resource_group_name        = module.vlans.hub_resource_group_name
-  firewall_resource_group_name   = module.vlans.firewall_resource_group_name
+  # firewall_resource_group_name   = module.vlans.firewall_resource_group_name
   cluster_resource_group_name    = module.vlans.cluster_resource_group_name
   # vpn_resource_group_name        = module.vlans.vpn_resource_group_name
 }
