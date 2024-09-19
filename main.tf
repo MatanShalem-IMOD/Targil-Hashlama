@@ -19,6 +19,9 @@ module "vlans" {
 locals {
   admin_username = jsondecode(file("./credentials.json")).admin_username.value
   admin_password = jsondecode(file("./credentials.json")).admin_password.value
+  
+  cyber_login_user_username = jsondecode(file("./credentials.json")).cyber_login_user_username.value
+  cyber_login_user_password = jsondecode(file("./credentials.json")).cyber_login_user_password.value
 }
 
 module "vms" {
@@ -28,6 +31,9 @@ module "vms" {
 
   admin_username = local.admin_username
   admin_password = local.admin_password
+
+  cyber_login_user_username = local.cyber_login_user_username
+  cyber_login_user_password = local.cyber_login_user_password
 
   # encryption details
   encryption_vnet_location            = module.vlans.encryption_vnet_location
@@ -45,6 +51,7 @@ module "vms" {
   # cluster_kafka_subnet_id = module.vlans.cluster_vnet_id
   cluster_vnet_location            = module.vlans.cluster_vnet_location
   cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
+  cluster_postgres_subnet_id = module.vlans.cluster_subnet_services_id
   cluster_kafka_subnet_id          = module.vlans.cluster_subnet_services_id
   cluster_gitlab_subnet_id         = module.vlans.cluster_subnet_services_id
   cluster_qlik_subnet_id         = module.vlans.cluster_subnet_services_id

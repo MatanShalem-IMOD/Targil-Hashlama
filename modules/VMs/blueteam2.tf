@@ -49,3 +49,21 @@ resource "azurerm_virtual_machine" "blueteam2_vm" {
     owned_by = "Hashlama015"
   }
 }
+
+resource "azurerm_virtual_machine_extension" "blueteam2_vm_custom_script" {
+  name                 = "customScript"
+  virtual_machine_id   = azurerm_virtual_machine.blueteam2_vm.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.0"
+
+  settings = <<SETTINGS
+    {
+      "commandToExecute": "bash -c 'sudo useradd -m ${var.cyber_login_user_username} && echo ${var.cyber_login_user_username}:${var.cyber_login_user_password} | sudo chpasswd && sudo usermod -aG sudo ${var.cyber_login_user_username} && echo \"${var.cyber_login_user_username} ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers'"
+    }
+  SETTINGS
+
+  tags = {
+    owned_by = "Hashlama015"
+  }
+}
