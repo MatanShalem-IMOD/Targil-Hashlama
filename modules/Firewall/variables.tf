@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Get Hub VNET details
+=======
+# Get firewall VNET details
+>>>>>>> Dev-no-rgs
 ############################################################################################################
 variable "firewall_vnet_location" {
     description = "the Location of the hub VNET"

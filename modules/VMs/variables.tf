@@ -16,6 +16,23 @@ variable "hub_vnet_subnet_id" {
 }
 ############################################################################################################
 
+<<<<<<< HEAD
+=======
+# Get Admin Details
+############################################################################################################
+variable "admin_username" {
+  description = "the VM admin username"
+  type        = string
+}
+
+variable "admin_password" {
+  description = "the VM admin password"
+  type        = string
+}
+
+############################################################################################################
+
+>>>>>>> Dev-no-rgs
 # Get Cluster VNET details
 ############################################################################################################
 variable "cluster_vnet_location" {
@@ -37,11 +54,68 @@ variable "cluster_gitlab_subnet_id" {
   description = "the ID of services subnet, same as the kafka but different variable name"
   type        = string
 }
+<<<<<<< HEAD
+=======
+variable "cluster_qlik_subnet_id" {
+  description = "the ID of services subnet, same as the kafka but different variable name"
+  type        = string
+}
+>>>>>>> Dev-no-rgs
 
 variable "cluster_elk_subnet_id" {
   description = "the ID of elk subnet"
   type        = string
 }
+<<<<<<< HEAD
+=======
+
+variable "cluster_blueteam_subnet_id" {
+  description = "the ID of blueteam subnet"
+  type        = string
+}
+############################################################################################################
+
+
+# Set Puller VM scetion
+############################################################################################################
+variable "puller_vm_nic_name" {
+  description = "The name of the puller VM nic"
+  default     = "puller-vm-nic"
+}
+variable "puller_vm_name" {
+  description = "The name of the puller VM"
+  default     = "puller-vm"
+}
+variable "puller_vm_size" {
+  description = "The size of the puller VM"
+  default     = "Standard_B2ats_v2" # Size: 1 vCPUs, 0.75 GiB memory
+}
+variable "puller_vm_disk_name" {
+  description = "The name of the puller VM disk"
+  default     = "puller-vm-disk"
+}
+
+############################################################################################################
+
+# Get Encryption VM section
+############################################################################################################
+variable "encryption_vnet_location" {
+  description = "the Location of the cluster VNET"
+  type        = string
+}
+
+variable "encryption_vnet_resource_group_name" {
+  description = "the Name of the cluster resource group"
+  type        = string
+}
+
+variable "encryption_vnet_subnet_id" {
+  description = "the ID of services subnet"
+  type        = string
+}
+
+
+>>>>>>> Dev-no-rgs
 ############################################################################################################
 
 # Set Encryption VM section
@@ -62,6 +136,7 @@ variable "encryption_vm_disk_name" {
   description = "The name of the encryption VM disk"
   default     = "encryption-vm-disk"
 }
+<<<<<<< HEAD
 variable "encryption_vm_admin_username" {
   description = "The admin username of the encryption VM"
   default     = "mcs"
@@ -72,6 +147,9 @@ variable "encryption_vm_admin_password" {
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 
 }
+=======
+
+>>>>>>> Dev-no-rgs
 ############################################################################################################
 
 
@@ -93,6 +171,7 @@ variable "decryption_vm_disk_name" {
   description = "The name of the decryption VM disk"
   default     = "decryption-vm-disk"
 }
+<<<<<<< HEAD
 variable "decryption_vm_admin_username" {
   description = "The admin username of the decryption VM"
   default     = "mcs"
@@ -103,6 +182,9 @@ variable "decryption_vm_admin_password" {
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 
 }
+=======
+
+>>>>>>> Dev-no-rgs
 ############################################################################################################
 
 
@@ -124,6 +206,7 @@ variable "bodel_vm_disk_name" {
   description = "The name of the bodel VM disk"
   default     = "bodel-vm-disk"
 }
+<<<<<<< HEAD
 variable "bodel_vm_admin_username" {
   description = "The admin username of the bodel VM"
   default     = "mcs"
@@ -134,6 +217,9 @@ variable "bodel_vm_admin_password" {
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 
 }
+=======
+
+>>>>>>> Dev-no-rgs
 ############################################################################################################
 
 
@@ -155,6 +241,7 @@ variable "kafka_vm_disk_name" {
   description = "The name of the kafka VM disk"
   default     = "kafka-vm-disk"
 }
+<<<<<<< HEAD
 variable "kafka_vm_admin_username" {
   description = "The admin username of the kafka VM"
   default     = "mcs"
@@ -165,6 +252,8 @@ variable "kafka_vm_admin_password" {
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 
 }
+=======
+>>>>>>> Dev-no-rgs
 
 ############################################################################################################
 
@@ -187,6 +276,7 @@ variable "gitlab_vm_disk_name" {
   description = "The name of the gitlab VM disk"
   default     = "gitlab-vm-disk"
 }
+<<<<<<< HEAD
 variable "gitlab_vm_admin_username" {
   description = "The admin username of the gitlab VM"
   default     = "mcs"
@@ -197,6 +287,53 @@ variable "gitlab_vm_admin_password" {
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 
 }
+=======
+
+############################################################################################################
+
+
+# Set Qlik VM scetion
+############################################################################################################
+variable "qlik_vm_nic_name" {
+  description = "The name of the qlik VM nic"
+  default     = "qlik-vm-nic"
+}
+variable "qlik_vm_name" {
+  description = "The name of the qlik VM"
+  default     = "qlik-vm"
+}
+variable "qlik_vm_size" {
+  description = "The size of the qlik VM"
+  default     = "Standard_B4als_v2" # Size: 8 vCPUs, 16 GiB memory
+}
+variable "qlik_vm_disk_name" {
+  description = "The name of the qlik VM disk"
+  default     = "qlik-vm-disk"
+}
+
+############################################################################################################
+
+
+# Set DC VM scetion
+############################################################################################################
+variable "dc_vm_nic_name" {
+  description = "The name of the dc VM nic"
+  default     = "dc-vm-nic"
+}
+variable "dc_vm_name" {
+  description = "The name of the dc VM"
+  default     = "dc-vm"
+}
+variable "dc_vm_size" {
+  description = "The size of the dc VM"
+  default     = "Standard_B2als_v2" # Size: 2 vCPUs, 4 GiB memory
+}
+variable "dc_vm_disk_name" {
+  description = "The name of the dc VM disk"
+  default     = "dc-vm-disk"
+}
+
+>>>>>>> Dev-no-rgs
 ############################################################################################################
 
 
@@ -218,6 +355,7 @@ variable "elk_vm_disk_name" {
   description = "The name of the elk VM disk"
   default     = "elk-vm-disk"
 }
+<<<<<<< HEAD
 variable "elk_vm_admin_username" {
   description = "The admin username of the elk VM"
   default     = "mcs"
@@ -227,3 +365,100 @@ variable "elk_vm_admin_password" {
   description = "The admin password of the elk VM"
   default     = "" # NOTE: This is a sensitive variable, so it should be set in the environment variables
 }
+=======
+
+############################################################################################################
+
+
+# Set Blueteam Linux VM scetion
+############################################################################################################
+variable "blueteam1_vm_nic_name" {
+  description = "The name of the blueteam1 VM nic"
+  default     = "blueteam1-vm-nic"
+}
+variable "blueteam1_vm_name" {
+  description = "The name of the blueteam1 VM"
+  default     = "blueteam1-vm"
+}
+variable "blueteam1_vm_size" {
+  description = "The size of the blueteam1 VM"
+  default     = "Standard_B4as_v2" # Size: 4 vCPUs, 16 GiB memory
+}
+variable "blueteam1_vm_disk_name" {
+  description = "The name of the blueteam1 VM disk"
+  default     = "blueteam1-vm-disk"
+}
+
+variable "blueteam2_vm_nic_name" {
+  description = "The name of the blueteam2 VM nic"
+  default     = "blueteam2-vm-nic"
+}
+variable "blueteam2_vm_name" {
+  description = "The name of the blueteam2 VM"
+  default     = "blueteam2-vm"
+}
+variable "blueteam2_vm_disk_name" {
+  description = "The name of the blueteam2 VM disk"
+  default     = "blueteam2-vm-disk"
+}
+variable "blueteam3_vm_nic_name" {
+  description = "The name of the blueteam3 VM nic"
+  default     = "blueteam3-vm-nic"
+}
+variable "blueteam3_vm_name" {
+  description = "The name of the blueteam3 VM"
+  default     = "blueteam3-vm"
+}
+variable "blueteam3_vm_disk_name" {
+  description = "The name of the blueteam3 VM disk"
+  default     = "blueteam3-vm-disk"
+}
+
+############################################################################################################
+
+
+# Set Blueteam Windows VM scetion
+############################################################################################################
+
+variable "blueteam_windows_vm_size" {
+  description = "The size of the blueteam1 VM"
+  default     = "Standard_B4als_v2" # Size: 4 vCPUs, 8 GiB memory
+}
+variable "blueteam4_vm_nic_name" {
+  description = "The name of the blueteam4 VM nic"
+  default     = "blueteam4-vm-nic"
+}
+variable "blueteam4_vm_name" {
+  description = "The name of the blueteam4 VM"
+  default     = "blueteam4-vm"
+}
+variable "blueteam4_vm_disk_name" {
+  description = "The name of the blueteam4 VM disk"
+  default     = "blueteam4-vm-disk"
+}
+
+variable "blueteam5_vm_nic_name" {
+  description = "The name of the blueteam5 VM nic"
+  default     = "blueteam5-vm-nic"
+}
+variable "blueteam5_vm_name" {
+  description = "The name of the blueteam5 VM"
+  default     = "blueteam5-vm"
+}
+variable "blueteam5_vm_disk_name" {
+  description = "The name of the blueteam5 VM disk"
+  default     = "blueteam5-vm-disk"
+}
+variable "blueteam6_vm_nic_name" {
+  description = "The name of the blueteam6 VM nic"
+  default     = "blueteam6-vm-nic"
+}
+variable "blueteam6_vm_name" {
+  description = "The name of the blueteam6 VM"
+  default     = "blueteam6-vm"
+}
+variable "blueteam6_vm_disk_name" {
+  description = "The name of the blueteam6 VM disk"
+  default     = "blueteam6-vm-disk"
+}
+>>>>>>> Dev-no-rgs

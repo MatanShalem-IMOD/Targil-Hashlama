@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"peering","Source":"./modules/peering","Dir":"modules/peering"},{"Key":"vlans","Source":"./modules/vlans","Dir":"modules/vlans"},{"Key":"vms","Source":"./modules/VMs","Dir":"modules/VMs"}]}
+=======
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"blob_storage","Source":"./modules/BlobStorage","Dir":"modules/BlobStorage"},{"Key":"network_watcher","Source":"./modules/NetworkWatcher","Dir":"modules/NetworkWatcher"},{"Key":"peering","Source":"./modules/peering","Dir":"modules/peering"},{"Key":"registry","Source":"./modules/registry","Dir":"modules/registry"},{"Key":"vlans","Source":"./modules/vlans","Dir":"modules/vlans"},{"Key":"vms","Source":"./modules/VMs","Dir":"modules/VMs"}]}
+>>>>>>> Dev-no-rgs

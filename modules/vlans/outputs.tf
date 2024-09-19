@@ -1,13 +1,24 @@
 # Encryption
 ############################################################################################################
 output "encryption_resource_group_name" {
+<<<<<<< HEAD
     value = azurerm_resource_group.create_encryption_resource_group.name
+=======
+    value = data.azurerm_resource_group.existing_encryption_rg.name ##
+>>>>>>> Dev-no-rgs
     description = "the Name of encryption resource group"
 }
 output "encryption_vnet_name" {
   value = azurerm_virtual_network.create_encryption_vnet.name
   description = "the Name of encryption VNET"
 }
+<<<<<<< HEAD
+=======
+output "encryption_vnet_location" {
+  value = azurerm_virtual_network.create_encryption_vnet.location
+  description = "the location of the encryption vnet"
+}
+>>>>>>> Dev-no-rgs
 output "encryption_vnet_id" {
   value = azurerm_virtual_network.create_encryption_vnet.id
   description = "the ID of encyption VNET"
@@ -22,7 +33,11 @@ output "encryption_subnet_ip_range" {
 }
 
 output "encryption_subnet_id" {
+<<<<<<< HEAD
   value = azurerm_subnet.create_encryption_subnet.address_prefixes[0]
+=======
+  value = azurerm_subnet.create_encryption_subnet.id
+>>>>>>> Dev-no-rgs
   
 }
 
@@ -31,7 +46,11 @@ output "encryption_subnet_id" {
 # Hub VNET
 ############################################################################################################
 output "hub_resource_group_name" {
+<<<<<<< HEAD
     value = azurerm_resource_group.create_hub_resource_group.name
+=======
+    value = data.azurerm_resource_group.existing_hub_rg.name
+>>>>>>> Dev-no-rgs
     description = "the Name of hub resource group"
 }
 output "hub_vnet_name" {
@@ -65,9 +84,19 @@ output "hub_subnet_id" {
 # Firewall
 ############################################################################################################
 output "firewall_resource_group_name" {
+<<<<<<< HEAD
     value = azurerm_resource_group.create_firewall_resource_group.name
     description = "the Name of firewall resource group"
 }
+=======
+    value = data.azurerm_resource_group.existing_firewall_rg.name
+    description = "the Name of firewall resource group"
+}
+output "firewall_vnet_location" {
+    value = azurerm_virtual_network.create_firewall_vnet.location
+    description = "the location of firewall vnet"
+}
+>>>>>>> Dev-no-rgs
 output "firewall_vnet_name" {
   value = azurerm_virtual_network.create_firewall_vnet.name
   description = "the Name of firewall VNET"
@@ -87,7 +116,11 @@ output "firewall_subnet_ip_range" {
 }
 
 output "firewall_subnet_id" {
+<<<<<<< HEAD
   value = azurerm_subnet.create_firewall_subnet.address_prefixes[0]
+=======
+  value = azurerm_subnet.create_firewall_subnet.id
+>>>>>>> Dev-no-rgs
 }
 
 ############################################################################################################
@@ -99,7 +132,11 @@ output "cluster_vnet_location" {
     description = "the location of cluster vnet"
 }
 output "cluster_resource_group_name" {
+<<<<<<< HEAD
     value = azurerm_resource_group.create_cluster_resource_group.name
+=======
+    value = data.azurerm_resource_group.existing_cluster_rg.name
+>>>>>>> Dev-no-rgs
     description = "the Name of cluster resource group"
 }
 output "cluster_vnet_name" {
@@ -161,4 +198,38 @@ output "cluster_subnet_elk_ip" {
 output "cluster_subnet_elk_id" {
   value = azurerm_subnet.create_elk_cluster_subnet.id
 }
+<<<<<<< HEAD
 #########################################
+=======
+#########################################
+
+
+# # vpn
+# ############################################################################################################
+# output "vpn_resource_group_name" {
+#     value = data.azurerm_resource_group.existing_vpn_rg.name
+#     description = "the Name of vpn resource group"
+# }
+# output "vpn_vnet_name" {
+#   value = azurerm_virtual_network.create_vpn_vnet.name
+#   description = "the Name of vpn VNET"
+# }
+
+# output "vpn_vnet_id" {
+#   value = azurerm_virtual_network.create_vpn_vnet.id
+#   description = "the ID of vpn VNET"
+# }
+
+# output "vpn_subnet_name" {
+#   value = azurerm_subnet.create_vpn_subnet.name
+# }
+
+# output "vpn_subnet_ip_range" {
+#   value = resource.azurerm_subnet.create_vpn_subnet.address_prefixes[0]
+# }
+
+# output "vpn_subnet_id" {
+#   value = azurerm_subnet.create_vpn_subnet.address_prefixes[0]
+# }
+############################################################################################################
+>>>>>>> Dev-no-rgs

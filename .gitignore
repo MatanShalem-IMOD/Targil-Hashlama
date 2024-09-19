@@ -13,6 +13,10 @@
 backend.tf
 backend-config.hcl
 credentials.json
+<<<<<<< HEAD
+=======
+*/credentials.json
+>>>>>>> Dev-no-rgs
 key.json
 terraform-ls.tf
 bundle.zip
