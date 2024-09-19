@@ -117,6 +117,24 @@ variable "address_prefixes_GatewaySubnet" {
 }
 ############################################################################################################
 
+# Red VNET
+############################################################################################################
+variable "address_space_red_vnet" {
+  description = "the address space of the vnet"
+  default     = ["10.200.5.0/24"]
+}
+
+variable "dns_servers_red_vnet" {
+  description = "the dns_servers of the vnet"
+  default     = ["10.200.5.4"]
+}
+
+variable "address_prefixes_red_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.200.5.0/24"]
+}
+############################################################################################################
+
 # Resource Group Names
 ############################################################################################################
 variable "cluster_resource_group_name" {
@@ -140,6 +158,12 @@ variable "firewall_resource_group_name" {
 variable "hub_resource_group_name" {
   description = "the name of the hub resource group"
   default     = "hashlama015-hub-rg"
+  
+}
+
+variable "red_resource_group_name" {
+  description = "the name of the red resource group"
+  default     = "hashlama015-cyber-rg"
   
 }
 

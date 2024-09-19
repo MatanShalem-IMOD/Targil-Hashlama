@@ -46,14 +46,13 @@ resource "azurerm_virtual_machine" "gitlab_vm" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
-
   # Add the new data disk here
   storage_data_disk {
-    name              = "gitlab-vm-data-disk"
+    name              = var.gitlab_vm_data_disk_name
     lun               = 0 # Logical Unit Number, use 0 for the first data disk
     caching           = "None"
-    create_option     = "Attach"
-    disk_size_gb      = 100
+    create_option     = "Empty"
+    disk_size_gb      = var.gitlab_vm_data_disk_size
     managed_disk_type = "Standard_LRS"
   }
   tags = {

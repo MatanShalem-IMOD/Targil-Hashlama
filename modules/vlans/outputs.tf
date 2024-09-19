@@ -212,3 +212,37 @@ output "cluster_subnet_postgress_id" {
 #   value = azurerm_subnet.create_vpn_subnet.address_prefixes[0]
 # }
 ############################################################################################################
+
+# Red
+############################################################################################################
+output "red_resource_group_name" {
+    value = data.azurerm_resource_group.existing_red_rg.name ##
+    description = "the Name of red resource group"
+}
+output "red_vnet_name" {
+  value = azurerm_virtual_network.create_red_vnet.name
+  description = "the Name of red VNET"
+}
+output "red_vnet_location" {
+  value = azurerm_virtual_network.create_red_vnet.location
+  description = "the location of the red vnet"
+}
+output "red_vnet_id" {
+  value = azurerm_virtual_network.create_red_vnet.id
+  description = "the ID of encyption VNET"
+}
+
+output "red_subnet_name" {
+  value = azurerm_subnet.create_red_subnet.name
+}
+
+output "red_subnet_ip_range" {
+  value = resource.azurerm_subnet.create_red_subnet.address_prefixes[0]
+}
+
+output "red_subnet_id" {
+  value = azurerm_subnet.create_red_subnet.id
+  
+}
+
+############################################################################################################

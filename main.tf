@@ -22,6 +22,9 @@ locals {
   
   cyber_login_user_username = jsondecode(file("./credentials.json")).cyber_login_user_username.value
   cyber_login_user_password = jsondecode(file("./credentials.json")).cyber_login_user_password.value
+
+  red_login_user_username = jsondecode(file("./credentials.json")).red_login_user_username.value
+  red_login_user_password = jsondecode(file("./credentials.json")).red_login_user_password.value
 }
 
 module "vms" {
@@ -34,6 +37,9 @@ module "vms" {
 
   cyber_login_user_username = local.cyber_login_user_username
   cyber_login_user_password = local.cyber_login_user_password
+
+  red_login_user_username = local.red_login_user_username
+  red_login_user_password = local.red_login_user_password
 
   # encryption details
   encryption_vnet_location            = module.vlans.encryption_vnet_location
@@ -57,6 +63,11 @@ module "vms" {
   cluster_qlik_subnet_id         = module.vlans.cluster_subnet_services_id
   cluster_elk_subnet_id            = module.vlans.cluster_subnet_services_id
   cluster_blueteam_subnet_id            = module.vlans.cluster_subnet_services_id
+
+  # Red Details
+  red_vnet_location            = module.vlans.red_vnet_location
+  red_vnet_resource_group_name = module.vlans.red_resource_group_name
+  red_vnet_subnet_id           = module.vlans.red_subnet_id
 }
 
 module "peering" {

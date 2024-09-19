@@ -15,12 +15,12 @@ variable "admin_password" {
 # Get CyberUser Details
 ############################################################################################################
 variable "cyber_login_user_username" {
-  description = "the VM admin username"
+  description = "the VM sudo user username"
   type        = string
 }
 
 variable "cyber_login_user_password" {
-  description = "the VM admin password"
+  description = "the VM sudo user password"
   type        = string
 }
 
@@ -267,6 +267,17 @@ variable "gitlab_vm_disk_name" {
   default     = "gitlab-vm-disk"
 }
 
+variable "gitlab_vm_data_disk_name" {
+  description = "The name of the gitlab VM disk"
+  default     = "gitlab-vm-data-disk"
+}
+
+variable "gitlab_vm_data_disk_size" {
+  description = "The name of the gitlab VM disk"
+  default     = 100
+}
+
+
 ############################################################################################################
 
 
@@ -427,3 +438,48 @@ variable "blueteam6_vm_disk_name" {
   description = "The name of the blueteam6 VM disk"
   default     = "blueteam6-vm-disk"
 }
+
+# Get Redteam VM section
+############################################################################################################
+variable "red_vnet_location" {
+  description = "the Location of the red VNET"
+  type        = string
+}
+
+variable "red_vnet_resource_group_name" {
+  description = "the Name of the red resource group"
+  type        = string
+}
+
+variable "red_vnet_subnet_id" {
+  description = "the ID of red subnet"
+  type        = string
+}
+
+
+variable "red_login_user_username" {
+  description = "the VM sudo sudo username"
+  type        = string
+}
+
+variable "red_login_user_password" {
+  description = "the VM sudo user password"
+  type        = string
+}
+
+############################################################################################################
+
+# Set Redteam VM scetion
+############################################################################################################
+variable "red_vm_count"{ 
+  description = "The number of red team VMs"
+  default     = 5  
+}
+
+variable "red_vm_size" {
+  description = "The size of the red team VM"
+  default     = "Standard_B4als_v2" # Size: 4 vCPUs, 8 GiB memory
+  
+}
+
+############################################################################################################
