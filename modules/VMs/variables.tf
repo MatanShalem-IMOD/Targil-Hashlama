@@ -1,3 +1,31 @@
+# Get Admin Details
+############################################################################################################
+variable "admin_username" {
+  description = "the VM admin username"
+  type        = string
+}
+
+variable "admin_password" {
+  description = "the VM admin password"
+  type        = string
+}
+
+############################################################################################################
+
+# Get CyberUser Details
+############################################################################################################
+variable "cyber_login_user_username" {
+  description = "the VM admin username"
+  type        = string
+}
+
+variable "cyber_login_user_password" {
+  description = "the VM admin password"
+  type        = string
+}
+
+############################################################################################################
+
 # Get Hub VNET details
 ############################################################################################################
 variable "hub_vnet_location" {
@@ -16,20 +44,6 @@ variable "hub_vnet_subnet_id" {
 }
 ############################################################################################################
 
-# Get Admin Details
-############################################################################################################
-variable "admin_username" {
-  description = "the VM admin username"
-  type        = string
-}
-
-variable "admin_password" {
-  description = "the VM admin password"
-  type        = string
-}
-
-############################################################################################################
-
 # Get Cluster VNET details
 ############################################################################################################
 variable "cluster_vnet_location" {
@@ -39,6 +53,11 @@ variable "cluster_vnet_location" {
 
 variable "cluster_vnet_resource_group_name" {
   description = "the Name of the cluster resource group"
+  type        = string
+}
+
+variable "cluster_postgres_subnet_id" {
+  description = "the ID of services subnet"
   type        = string
 }
 
@@ -174,6 +193,38 @@ variable "bodel_vm_disk_name" {
 
 ############################################################################################################
 
+# Set Postgres VM scetion
+############################################################################################################
+variable "postgres_vm_nic_name" {
+  description = "The name of the postgres VM nic"
+  default     = "postgres-vm-nic"
+}
+variable "postgres_vm_name" {
+  description = "The name of the postgres VM"
+  default     = "postgres-vm"
+}
+variable "postgres_vm_size" {
+  description = "The size of the postgres VM"
+  default     = "Standard_B4as_v2" # Size: 4 vCPUs, 16 GiB memory
+}
+variable "postgres_vm_disk_name" {
+  description = "The name of the postgres VM disk"
+  default     = "postgres-vm-disk"
+}
+
+variable "postgres_data_disk_name" {
+  description = "Name of the PostgreSQL VM data disk"
+  type        = string
+  default     = "postgres-vm-data-disk"
+}
+
+variable "postgres_data_disk_size" {
+  description = "Size of the PostgreSQL VM data disk in GB"
+  type        = number
+  default     = 100
+}
+
+############################################################################################################
 
 # Set Kafka VM scetion
 ############################################################################################################
