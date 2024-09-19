@@ -56,22 +56,30 @@ module "peering" {
   source = "./modules/peering"
 
   # Pass the output from the vlans module to the peering module
+  
+  # Encryption Vnet peering details
   encryption_vnet_id = module.vlans.encryption_vnet_id
-  hub_vnet_id        = module.vlans.hub_vnet_id
-  # firewall_vnet_id   = module.vlans.firewall_vnet_id
-  cluster_vnet_id    = module.vlans.cluster_vnet_id
-  # vpn_vnet_id        = module.vlans.vpn_vnet_id
-
   encryption_vnet_name = module.vlans.encryption_vnet_name
-  hub_vnet_name        = module.vlans.hub_vnet_name
-  # firewall_vnet_name   = module.vlans.firewall_vnet_name
-  cluster_vnet_name    = module.vlans.cluster_vnet_name
-  # vpn_vnet_name        = module.vlans.vpn_vnet_name
-
   encryption_resource_group_name = module.vlans.encryption_resource_group_name
+
+  # Hub Vnet peering details
+  hub_vnet_id        = module.vlans.hub_vnet_id
+  hub_vnet_name        = module.vlans.hub_vnet_name
   hub_resource_group_name        = module.vlans.hub_resource_group_name
-  # firewall_resource_group_name   = module.vlans.firewall_resource_group_name
+
+  # Cluster Vnet peering details
+  cluster_vnet_id    = module.vlans.cluster_vnet_id
+  cluster_vnet_name    = module.vlans.cluster_vnet_name
   cluster_resource_group_name    = module.vlans.cluster_resource_group_name
+
+  # Firewall Vnet peering details
+  # firewall_vnet_id   = module.vlans.firewall_vnet_id
+  # firewall_vnet_name   = module.vlans.firewall_vnet_name
+  # firewall_resource_group_name   = module.vlans.firewall_resource_group_name
+  
+  # VPN Vnet peering details
+  # vpn_vnet_id        = module.vlans.vpn_vnet_id
+  # vpn_vnet_name        = module.vlans.vpn_vnet_name
   # vpn_resource_group_name        = module.vlans.vpn_resource_group_name
 }
 
