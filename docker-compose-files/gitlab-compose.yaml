@@ -1,0 +1,16 @@
+---
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab-docker
+    hostname: 'gitlab-docker'
+    ports:
+      - '80:80'
+      - '2424:22'
+    volumes:
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
+    shm_size: '12g'
+    restart: always
+
