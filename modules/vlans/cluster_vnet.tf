@@ -17,12 +17,12 @@ resource "azurerm_virtual_network" "create_cluster_vnet" {
 }
 
 
-resource "azurerm_subnet" "create_openshift_cluster_subnet" {
-  name                 = "openshift_cluster_subnet"
-  resource_group_name  = data.azurerm_resource_group.existing_cluster_rg.name
-  virtual_network_name = azurerm_virtual_network.create_cluster_vnet.name
-  address_prefixes     = var.address_prefixes_openshift_cluster_subnet # azurerm_subnet expects "address_prefixes" instead of "address_prefix"
-}
+# resource "azurerm_subnet" "create_openshift_cluster_subnet" {
+#   name                 = "openshift_cluster_subnet"
+#   resource_group_name  = data.azurerm_resource_group.existing_cluster_rg.name
+#   virtual_network_name = azurerm_virtual_network.create_cluster_vnet.name
+#   address_prefixes     = var.address_prefixes_openshift_cluster_subnet # azurerm_subnet expects "address_prefixes" instead of "address_prefix"
+# }
 
 resource "azurerm_subnet" "create_blue_team_cluster_subnet" {
   name                 = "blueteam_cluster_subnet"

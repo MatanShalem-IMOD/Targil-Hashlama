@@ -64,19 +64,19 @@ variable "address_prefixes_firewall_subnet" {
 ############################################################################################################
 variable "address_space_cluster_vnet" {
   description = "the address space of the vnet"
-  default     = ["10.200.16.0/20"]
+  default     = ["10.200.24.0/21"]
 }
 
 # check DNS
-variable "dns_servers_cluster_vnet" {
-  description = "the dns_servers of the vnet"
-  default     = ["10.200.16.4"]
-}
+# variable "dns_servers_cluster_vnet" {
+#   description = "the dns_servers of the vnet"
+#   default     = ["10.200.16.4"]
+# }
 
-variable "address_prefixes_openshift_cluster_subnet" {
-  description = "the address prefixes of the subnet"
-  default     = ["10.200.16.0/21"]
-}
+# variable "address_prefixes_openshift_cluster_subnet" {
+#   description = "the address prefixes of the subnet"
+#   default     = ["10.200.16.0/21"]
+# }
 
 variable "address_prefixes_blueteam_cluster_subnet" {
   description = "the address prefixes of the subnet"

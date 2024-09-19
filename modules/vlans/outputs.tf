@@ -125,15 +125,15 @@ output "cluster_vnet_id" {
 # Cluster Subnets 
 #########################################
 # OpenShift subnet
-output "cluster_subnet_openshift_name" {
-  value = azurerm_subnet.create_openshift_cluster_subnet.name 
-}
-output "cluster_subnet_openshift_ip" {
-  value = azurerm_subnet.create_openshift_cluster_subnet.address_prefixes[0]
-}
-output "cluster_subnet_openshift_id" {
-  value = azurerm_subnet.create_openshift_cluster_subnet.id
-}
+# output "cluster_subnet_openshift_name" {
+#   value = azurerm_subnet.create_openshift_cluster_subnet.name 
+# }
+# output "cluster_subnet_openshift_ip" {
+#   value = azurerm_subnet.create_openshift_cluster_subnet.address_prefixes[0]
+# }
+# output "cluster_subnet_openshift_id" {
+#   value = azurerm_subnet.create_openshift_cluster_subnet.id
+# }
 
 # Blue Team subnet
 output "cluster_subnet_blueteam_name" {
