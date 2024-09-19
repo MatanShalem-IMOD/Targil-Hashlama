@@ -43,6 +43,13 @@ resource "azurerm_subnet" "create_postgress_cluster_subnet" {
   resource_group_name  = data.azurerm_resource_group.existing_cluster_rg.name
   virtual_network_name = azurerm_virtual_network.create_cluster_vnet.name
   address_prefixes     = var.address_prefixes_postgress_cluster_subnet
+
+  delegation {
+    name = "postgresqlDelegation"
+    service_delegation {
+      name = "Microsoft.DBforPostgreSQL/flexibleServers"
+    }
+  }
 }
 
 resource "azurerm_subnet" "create_elk_cluster_subnet" {

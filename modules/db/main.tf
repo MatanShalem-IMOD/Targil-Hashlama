@@ -14,10 +14,10 @@ resource "azurerm_postgresql_flexible_server" "create_db_server" {
   name                          = "hashlama-psql-server"
   resource_group_name           = var.cluster_vnet_resource_group_name
   location                      = var.cluster_vnet_location
-  version                       = "16"
+  version                       = "13"
   delegated_subnet_id           = var.cluster_postgress_subnet_id
   private_dns_zone_id           = azurerm_private_dns_zone.create_private_dns_zone.id
-  public_network_access_enabled = false
+  #public_network_access_enabled = false
   administrator_login           = var.admin_username
   administrator_password        = var.admin_password
   zone                          = "1"

@@ -64,7 +64,7 @@ variable "address_prefixes_firewall_subnet" {
 ############################################################################################################
 variable "address_space_cluster_vnet" {
   description = "the address space of the vnet"
-  default     = ["10.200.24.0/21"]
+  default     = ["10.200.16.0/20"]
 }
 
 # check DNS
@@ -73,10 +73,15 @@ variable "address_space_cluster_vnet" {
 #   default     = ["10.200.16.4"]
 # }
 
-# variable "address_prefixes_openshift_cluster_subnet" {
+# variable "address_prefixes_kube_cluster_subnet" {
 #   description = "the address prefixes of the subnet"
 #   default     = ["10.200.16.0/21"]
 # }
+
+variable "address_prefixes_postgress_cluster_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.200.20.0/22"]
+}
 
 variable "address_prefixes_blueteam_cluster_subnet" {
   description = "the address prefixes of the subnet"
@@ -85,14 +90,8 @@ variable "address_prefixes_blueteam_cluster_subnet" {
 
 variable "address_prefixes_services_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.200.28.0/24"]
+  default     = ["10.200.28.0/23"]
 }
-
-variable "address_prefixes_postgress_cluster_subnet" {
-  description = "the address prefixes of the subnet"
-  default     = ["10.200.29.0/24"]
-}
-
 variable "address_prefixes_elk_cluster_subnet" {
   description = "the address prefixes of the subnet"
   default     = ["10.200.30.0/23"]
