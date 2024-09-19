@@ -38,6 +38,13 @@ resource "azurerm_subnet" "create_services_cluster_subnet" {
   address_prefixes     = var.address_prefixes_services_cluster_subnet
 }
 
+resource "azurerm_subnet" "create_postgress_cluster_subnet" {
+  name                 = "postgress_cluster_subnet"
+  resource_group_name  = data.azurerm_resource_group.existing_cluster_rg.name
+  virtual_network_name = azurerm_virtual_network.create_cluster_vnet.name
+  address_prefixes     = var.address_prefixes_postgress_cluster_subnet
+}
+
 resource "azurerm_subnet" "create_elk_cluster_subnet" {
   name                 = "elk_cluster_subnet"
   resource_group_name  = data.azurerm_resource_group.existing_cluster_rg.name

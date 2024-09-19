@@ -97,6 +97,21 @@ module "blob_storage" {
   # Pass the output from the vlans module to the blob storage module 
 }
 
+module "postgres" {
+  source = "./modules/db"
+
+  # Pass the output from the vlans module to the postgres module
+  cluster_vnet_location            = module.vlans.cluster_vnet_location
+  cluster_vnet_resource_group_name = module.vlans.cluster_resource_group_name
+  cluster_postgress_subnet_id      = module.vlans.cluster_subnet_postgress_id
+  cluster_vnet_id = module.vlans.cluster_vnet_id
+
+  admin_username = local.admin_username
+  admin_password = local.admin_password
+
+}
+
+
 # module "network_watcher" {
 #   source = "./modules/NetworkWatcher"
 

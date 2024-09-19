@@ -85,7 +85,12 @@ variable "address_prefixes_blueteam_cluster_subnet" {
 
 variable "address_prefixes_services_cluster_subnet" {
   description = "the address prefixes of the subnet"
-  default     = ["10.200.28.0/23"]
+  default     = ["10.200.28.0/24"]
+}
+
+variable "address_prefixes_postgress_cluster_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.200.29.0/24"]
 }
 
 variable "address_prefixes_elk_cluster_subnet" {

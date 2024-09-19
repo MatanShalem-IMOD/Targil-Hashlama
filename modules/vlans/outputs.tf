@@ -169,6 +169,18 @@ output "cluster_subnet_elk_ip" {
 output "cluster_subnet_elk_id" {
   value = azurerm_subnet.create_elk_cluster_subnet.id
 }
+
+# Postgress subnet
+output "cluster_subnet_postgress_name" {
+  value = azurerm_subnet.create_postgress_cluster_subnet.name 
+}
+output "cluster_subnet_postgress_ip" {
+  value = azurerm_subnet.create_postgress_cluster_subnet.address_prefixes[0]
+}
+
+output "cluster_subnet_postgress_id" {
+  value = azurerm_subnet.create_postgress_cluster_subnet.id
+}
 #########################################
 
 
