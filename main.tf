@@ -65,8 +65,8 @@ module "vms" {
   cluster_blueteam_subnet_id            = module.vlans.cluster_subnet_services_id
 
   # Red Details
+  cyber_resource_group_name = module.vlans.cyber_resource_group_name
   red_vnet_location            = module.vlans.red_vnet_location
-  red_vnet_resource_group_name = module.vlans.red_resource_group_name
   red_vnet_subnet_id           = module.vlans.red_subnet_id
 }
 

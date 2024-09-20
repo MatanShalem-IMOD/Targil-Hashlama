@@ -446,8 +446,8 @@ variable "red_vnet_location" {
   type        = string
 }
 
-variable "red_vnet_resource_group_name" {
-  description = "the Name of the red resource group"
+variable "cyber_resource_group_name" {
+  description = "the Name of the cyber resource group"
   type        = string
 }
 

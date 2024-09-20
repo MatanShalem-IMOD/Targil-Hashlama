@@ -1,7 +1,7 @@
 # resource "azurerm_network_interface" "blueteam6_vm_nic" {
 #   name                = var.blueteam6_vm_nic_name
 #   location            = var.cluster_vnet_location
-#   resource_group_name = var.cluster_vnet_resource_group_name
+#   resource_group_name = var.cyber_resource_group_name
 
 #   ip_configuration {
 #     name                          = "internal"
@@ -16,7 +16,7 @@
 # resource "azurerm_virtual_machine" "blueteam6_vm" {
 #   name                  = var.blueteam6_vm_name
 #   location              = var.cluster_vnet_location
-#   resource_group_name   = var.cluster_vnet_resource_group_name
+#   resource_group_name   = var.cyber_resource_group_name
 #   network_interface_ids = [azurerm_network_interface.blueteam6_vm_nic.id]
 #   vm_size               = var.blueteam_windows_vm_size
 

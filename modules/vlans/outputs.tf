@@ -215,8 +215,8 @@ output "cluster_subnet_postgress_id" {
 
 # Red
 ############################################################################################################
-output "red_resource_group_name" {
-    value = data.azurerm_resource_group.existing_red_rg.name ##
+output "cyber_resource_group_name" {
+    value = data.azurerm_resource_group.existing_cyber_rg.name ##
     description = "the Name of red resource group"
 }
 output "red_vnet_name" {

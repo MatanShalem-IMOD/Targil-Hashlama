@@ -161,7 +161,7 @@ variable "hub_resource_group_name" {
   
 }
 
-variable "red_resource_group_name" {
+variable "cyber_resource_group_name" {
   description = "the name of the red resource group"
   default     = "hashlama015-cyber-rg"
   

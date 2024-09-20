@@ -4,7 +4,7 @@
 
 #   name                = "red-vm-nic-${count.index + 1}"
 #   location            = var.red_vnet_location
-#   resource_group_name = var.red_vnet_resource_group_name
+#   resource_group_name = var.cyber_vnet_resource_group_name
 
 #   ip_configuration {
 #     name                          = "internal"
@@ -22,7 +22,7 @@
 
 #   name                  = "red-vm-${count.index + 1}"
 #   location              = var.red_vnet_location
-#   resource_group_name   = var.red_vnet_resource_group_name
+#   resource_group_name   = var.cyber_vnet_resource_group_name
 #   network_interface_ids = [azurerm_network_interface.red_vm_nic[count.index].id]
 #   vm_size               = var.red_vm_size
 
@@ -37,9 +37,9 @@
 #   # Specify the image to use (Kali Linux 2024.3 x64 Gen2)
 #   storage_image_reference {
 #     publisher = "kali-linux"     # Kali Linux publisher
-#     offer     = "kali"           # Kali Linux offer
-#     sku       = "kali-gen2"      # Gen2 SKU
-#     version   = "2023.3"         # Version of Kali Linux
+#     offer     = "kali-linux"           # Kali Linux offer
+#     sku       = "kali"      # Gen2 SKU
+#     # version   = "2024.3.0"         # Version of Kali Linux
 #   }
 
 #   os_profile {
