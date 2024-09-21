@@ -33,10 +33,9 @@ resource "azurerm_virtual_machine" "blueteam5_vm" {
    storage_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
-    sku       = "2019-Datacenter"
+    sku       = "2022-datacenter-g2"
     version   = "latest"
   }
-
   os_profile {
     computer_name  = "hostname"
     admin_username = var.admin_username

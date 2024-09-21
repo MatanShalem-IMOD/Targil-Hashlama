@@ -344,6 +344,16 @@ variable "elk_vm_disk_name" {
   default     = "elk-vm-disk"
 }
 
+variable "elk_vm_data_disk_name" {
+  description = "The name of the elk VM disk"
+  default     = "elk-vm-data-disk"
+}
+
+variable "elk_vm_data_disk_size" {
+  description = "The name of the elk VM disk"
+  default     = 256
+}
+
 ############################################################################################################
 
 
