@@ -99,7 +99,7 @@ variable "puller_vm_name" {
 }
 variable "puller_vm_size" {
   description = "The size of the puller VM"
-  default     = "Standard_B2ats_v2" # Size: 1 vCPUs, 0.75 GiB memory
+  default     = "Standard_B4als_v2" # Size: 8 vCPUs, 8 GiB memory
 }
 variable "puller_vm_disk_name" {
   description = "The name of the puller VM disk"
