@@ -139,7 +139,7 @@ variable "address_prefixes_red_subnet" {
 ############################################################################################################
 variable "cluster_resource_group_name" {
   description = "the name of the cluster resource group"
-  default     = "hashlama015-cluster-rg" # Note: Change this to the correct name later
+  default     = "hashlama015-cluster-rg" 
   
 }
 
@@ -167,9 +167,35 @@ variable "cyber_resource_group_name" {
   
 }
 
+variable "sandbox_resource_group_name" {
+  description = "the name of the sandbox resource group"
+  default     = "hashlama015-tashtiot-rg" 
+  
+}
+
+
 # variable "vpn_resource_group_name" {
 #   description = "the name of the vpn resource group"
 #   default     = "hashlama015-vpn-rg"
   
 # }
+############################################################################################################
+
+# Encryption VNET
+############################################################################################################
+variable "address_space_sandbox_vnet" {
+  description = "the address space of the vnet"
+  default     = ["10.200.6.0/24"]
+}
+
+variable "dns_servers_sandbox_vnet" {
+  description = "the dns_servers of the vnet"
+  default     = ["10.200.6.4"]
+}
+
+
+variable "address_prefixes_sandbox_subnet" {
+  description = "the address prefixes of the subnet"
+  default     = ["10.200.6.0/24"]
+}
 ############################################################################################################

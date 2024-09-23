@@ -493,3 +493,24 @@ variable "red_vm_size" {
 }
 
 ############################################################################################################
+
+# Set Rundeck VM scetion
+############################################################################################################
+variable "rundeck_vm_nic_name" {
+  description = "The name of the rundeck VM nic"
+  default     = "rundeck-vm-nic"
+}
+variable "rundeck_vm_name" {
+  description = "The name of the rundeck VM"
+  default     = "rundeck-vm"
+}
+variable "rundeck_vm_size" {
+  description = "The size of the rundeck VM"
+  default     = "Standard_B4als_v2" # Size: 8 vCPUs, 8 GiB memory
+}
+variable "rundeck_vm_disk_name" {
+  description = "The name of the rundeck VM disk"
+  default     = "rundeck-vm-disk"
+}
+
+############################################################################################################

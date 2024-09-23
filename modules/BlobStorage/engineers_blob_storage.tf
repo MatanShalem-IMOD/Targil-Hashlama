@@ -36,3 +36,10 @@ resource "azurerm_storage_container" "ted_blob_container" {
   storage_account_name  = azurerm_storage_account.hashlama015_storage_account.name
   container_access_type = "blob"
 }
+
+# Create Blob Container
+resource "azurerm_storage_container" "internal_blob_container_test" {
+  name                  = "internalblobcontainertest"
+  storage_account_name  = azurerm_storage_account.hashlama015_storage_account.name
+  container_access_type = "blob"
+}
