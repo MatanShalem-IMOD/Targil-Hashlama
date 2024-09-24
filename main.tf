@@ -99,6 +99,11 @@ module "peering" {
   # vpn_vnet_id        = module.vlans.vpn_vnet_id
   # vpn_vnet_name        = module.vlans.vpn_vnet_name
   # vpn_resource_group_name        = module.vlans.vpn_resource_group_name
+
+  # Red Vnet peering details
+  red_vnet_id        = module.vlans.red_vnet_id
+  red_vnet_name        = module.vlans.red_vnet_name
+  cyber_resource_group_name        = module.vlans.cyber_resource_group_name
 }
 
 module "registry" {
@@ -147,3 +152,12 @@ module "postgres" {
 #   firewall_vnet_subnet_id           = module.vlans.firewall_subnet_id
   
 # }
+
+module "private_endpoint" {
+  source = "./modules/PrivateEndpoint"
+
+  encryption_vnet_id = module.vlans.encryption_vnet_id
+  encryption_subnet_id = module.vlans.encryption_subnet_id
+  storage_account_id = module.blob_storage.storage_account_id
+  # Pass the output from the vlans module to the blob storage module 
+}

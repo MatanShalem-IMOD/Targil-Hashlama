@@ -64,4 +64,26 @@ variable "cluster_resource_group_name" {
 #     description = "the name of VPN resource group"
 #     type = string
 # }
+
+# Get Redteam VM section
+############################################################################################################
+variable "red_vnet_name" {
+  description = "the Name of the red VNET"
+  type        = string
+  
+}
+
+variable "red_vnet_id" {
+  description = "the ID of the red VNET"
+  type        = string
+  
+}
+
+variable "cyber_resource_group_name" {
+  description = "the Name of the cyber resource group"
+  type        = string
+}
+
+############################################################################################################
+
 ############################################

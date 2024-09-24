@@ -43,3 +43,15 @@ resource "azurerm_storage_container" "internal_blob_container_test" {
   storage_account_name  = azurerm_storage_account.hashlama015_storage_account.name
   container_access_type = "blob"
 }
+
+resource "azurerm_storage_container" "internal_blob_container_tester" {
+  name                  = "internalblobcontainertester"
+  storage_account_name  = azurerm_storage_account.hashlama015_storage_account.name
+  container_access_type = "container"
+}
+
+resource "azurerm_storage_container" "internal_blob_container_tester2" {
+  name                  = "internalblobcontainertester2"
+  storage_account_name  = azurerm_storage_account.hashlama015_storage_account.name
+  container_access_type = "container"
+}

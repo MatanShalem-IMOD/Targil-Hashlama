@@ -166,3 +166,92 @@ resource "azurerm_virtual_network_peering" "create_peer_cluster_to_hub" {
 #   # `allow_gateway_transit` must be set to false for vnet Global Peering
 #   allow_gateway_transit = true
 # }
+
+
+###############################################################################################################################################
+################################################### Peering to RED ############################################################################
+###############################################################################################################################################
+
+# Encryption & RED
+resource "azurerm_virtual_network_peering" "create_peer_red_to_encryption" {
+  name                      = "red-to-encryption"
+  resource_group_name       = var.cyber_resource_group_name
+  virtual_network_name      = var.red_vnet_name
+  remote_virtual_network_id = var.encryption_vnet_id
+  
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+
+  # `allow_gateway_transit` must be set to false for vnet Global Peering
+  allow_gateway_transit = false
+}
+
+#########reverse peering################
+resource "azurerm_virtual_network_peering" "create_peer_encryption_to_red" {
+  name                      = "encryption-to-red"
+  resource_group_name       = var.encryption_resource_group_name
+  virtual_network_name      = var.encryption_vnet_name
+  remote_virtual_network_id = var.red_vnet_id
+
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+
+  # `allow_gateway_transit` must be set to false for vnet Global Peering
+    allow_gateway_transit = false
+}
+
+# Hub & RED
+resource "azurerm_virtual_network_peering" "create_peer_red_to_hub" {
+  name                      = "red-to-hub"
+  resource_group_name       = var.cyber_resource_group_name
+  virtual_network_name      = var.red_vnet_name
+  remote_virtual_network_id = var.hub_vnet_id
+  
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+
+  # `allow_gateway_transit` must be set to false for vnet Global Peering
+  allow_gateway_transit = false
+}
+
+#########reverse peering################
+resource "azurerm_virtual_network_peering" "create_peer_hub_to_red" {
+  name                      = "hub-to-red"
+  resource_group_name       = var.hub_resource_group_name
+  virtual_network_name      = var.hub_vnet_name
+  remote_virtual_network_id = var.red_vnet_id
+
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+
+  # `allow_gateway_transit` must be set to false for vnet Global Peering
+    allow_gateway_transit = false
+}
+
+# Cluster & RED
+resource "azurerm_virtual_network_peering" "create_peer_red_to_cluster" {
+  name                      = "red-to-cluster"
+  resource_group_name       = var.cyber_resource_group_name
+  virtual_network_name      = var.red_vnet_name
+  remote_virtual_network_id = var.cluster_vnet_id
+  
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+
+  # `allow_gateway_transit` must be set to false for vnet Global Peering
+  allow_gateway_transit = false
+}
+
+#########reverse peering################
+resource "azurerm_virtual_network_peering" "create_peer_cluster_to_red" {
+  name                      = "cluster-to-red"
+  resource_group_name       = var.cluster_resource_group_name
+  virtual_network_name      = var.cluster_vnet_name
+  remote_virtual_network_id = var.red_vnet_id
+
+  allow_virtual_network_access = true
+  allow_forwarded_traffic      = true
+
+  # `allow_gateway_transit` must be set to false for vnet Global Peering
+    allow_gateway_transit = false
+}
